@@ -7,35 +7,32 @@ using System.Xml;
 
 namespace Datalayer
 {
-    public class RSS
-    {
         internal class InternalClass
         {
             internal string xml = "";
         }
 
-        public class Rss : XmlAbstract
+        public class RSS : XmlAbstract
         {
-            public override XmlDocument PodDocument(string urlPod)
+            public override XmlDocument PodDocument(string urlString)
             {
-                InternalClass iClass = new InternalClass();
-                var xml = iClass.xml;
-
+                //Ladda hem XML.
+                var xml = "";
                 using (var client = new System.Net.WebClient())
                 {
                     client.Encoding = Encoding.UTF8;
-                    xml = client.DownloadString("http://www.aftonbladet.se/rss.xml");
+                    xml = client.DownloadString(urlString);
                 }
 
-
-                XmlDocument dom = new XmlDocument();
+                //Skapa en objektrepresentation.
+                var dom = new System.Xml.XmlDocument();
                 dom.LoadXml(xml);
                 return dom;
 
 
-            }
 
+            }
         }
     }
-}
+
     

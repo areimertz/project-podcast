@@ -9,7 +9,6 @@ namespace Logic
 {
     public class Class1
     {
-        private RSS rssGet = new RSS();
 
         public void getURL()
         {

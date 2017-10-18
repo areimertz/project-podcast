@@ -60,40 +60,41 @@
             // LBoxCategory
             // 
             this.LBoxCategory.FormattingEnabled = true;
-            this.LBoxCategory.ItemHeight = 16;
-            this.LBoxCategory.Location = new System.Drawing.Point(11, 31);
+            this.LBoxCategory.ItemHeight = 20;
+            this.LBoxCategory.Location = new System.Drawing.Point(12, 39);
             this.LBoxCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LBoxCategory.Name = "LBoxCategory";
-            this.LBoxCategory.Size = new System.Drawing.Size(212, 164);
+            this.LBoxCategory.Size = new System.Drawing.Size(238, 204);
             this.LBoxCategory.TabIndex = 0;
             this.LBoxCategory.SelectedIndexChanged += new System.EventHandler(this.LBoxCategory_SelectedIndexChanged);
             // 
             // LBoxPodcast
             // 
             this.LBoxPodcast.FormattingEnabled = true;
-            this.LBoxPodcast.ItemHeight = 16;
-            this.LBoxPodcast.Location = new System.Drawing.Point(228, 31);
+            this.LBoxPodcast.ItemHeight = 20;
+            this.LBoxPodcast.Location = new System.Drawing.Point(256, 39);
             this.LBoxPodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LBoxPodcast.Name = "LBoxPodcast";
-            this.LBoxPodcast.Size = new System.Drawing.Size(212, 164);
+            this.LBoxPodcast.Size = new System.Drawing.Size(238, 204);
             this.LBoxPodcast.TabIndex = 1;
+            this.LBoxPodcast.SelectedIndexChanged += new System.EventHandler(this.LBoxPodcast_SelectedIndexChanged);
             // 
             // LBoxEpisode
             // 
             this.LBoxEpisode.FormattingEnabled = true;
-            this.LBoxEpisode.ItemHeight = 16;
-            this.LBoxEpisode.Location = new System.Drawing.Point(444, 31);
+            this.LBoxEpisode.ItemHeight = 20;
+            this.LBoxEpisode.Location = new System.Drawing.Point(500, 39);
             this.LBoxEpisode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LBoxEpisode.Name = "LBoxEpisode";
-            this.LBoxEpisode.Size = new System.Drawing.Size(212, 164);
+            this.LBoxEpisode.Size = new System.Drawing.Size(238, 204);
             this.LBoxEpisode.TabIndex = 2;
             // 
             // LblCategory
             // 
             this.LblCategory.AutoSize = true;
-            this.LblCategory.Location = new System.Drawing.Point(11, 13);
+            this.LblCategory.Location = new System.Drawing.Point(12, 16);
             this.LblCategory.Name = "LblCategory";
-            this.LblCategory.Size = new System.Drawing.Size(65, 17);
+            this.LblCategory.Size = new System.Drawing.Size(73, 20);
             this.LblCategory.TabIndex = 3;
             this.LblCategory.Text = "Category";
             this.LblCategory.Click += new System.EventHandler(this.label1_Click);
@@ -101,96 +102,96 @@
             // LblPodcast
             // 
             this.LblPodcast.AutoSize = true;
-            this.LblPodcast.Location = new System.Drawing.Point(224, 13);
+            this.LblPodcast.Location = new System.Drawing.Point(252, 16);
             this.LblPodcast.Name = "LblPodcast";
-            this.LblPodcast.Size = new System.Drawing.Size(59, 17);
+            this.LblPodcast.Size = new System.Drawing.Size(67, 20);
             this.LblPodcast.TabIndex = 4;
             this.LblPodcast.Text = "Podcast";
             // 
             // LblEpisode
             // 
             this.LblEpisode.AutoSize = true;
-            this.LblEpisode.Location = new System.Drawing.Point(441, 13);
+            this.LblEpisode.Location = new System.Drawing.Point(496, 16);
             this.LblEpisode.Name = "LblEpisode";
-            this.LblEpisode.Size = new System.Drawing.Size(59, 17);
+            this.LblEpisode.Size = new System.Drawing.Size(67, 20);
             this.LblEpisode.TabIndex = 5;
             this.LblEpisode.Text = "Episode";
             // 
             // TBoxName
             // 
-            this.TBoxName.Location = new System.Drawing.Point(679, 31);
+            this.TBoxName.Location = new System.Drawing.Point(764, 39);
             this.TBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBoxName.Name = "TBoxName";
-            this.TBoxName.Size = new System.Drawing.Size(173, 22);
+            this.TBoxName.Size = new System.Drawing.Size(194, 26);
             this.TBoxName.TabIndex = 6;
             // 
             // LblName
             // 
             this.LblName.AutoSize = true;
-            this.LblName.Location = new System.Drawing.Point(676, 13);
+            this.LblName.Location = new System.Drawing.Point(760, 16);
             this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(45, 17);
+            this.LblName.Size = new System.Drawing.Size(51, 20);
             this.LblName.TabIndex = 7;
             this.LblName.Text = "Name";
             // 
             // TBoxChosenURL
             // 
-            this.TBoxChosenURL.Location = new System.Drawing.Point(679, 87);
+            this.TBoxChosenURL.Location = new System.Drawing.Point(764, 109);
             this.TBoxChosenURL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBoxChosenURL.Name = "TBoxChosenURL";
-            this.TBoxChosenURL.Size = new System.Drawing.Size(173, 22);
+            this.TBoxChosenURL.Size = new System.Drawing.Size(194, 26);
             this.TBoxChosenURL.TabIndex = 8;
             // 
             // LblChosenURL
             // 
             this.LblChosenURL.AutoSize = true;
-            this.LblChosenURL.Location = new System.Drawing.Point(677, 69);
+            this.LblChosenURL.Location = new System.Drawing.Point(762, 86);
             this.LblChosenURL.Name = "LblChosenURL";
-            this.LblChosenURL.Size = new System.Drawing.Size(88, 17);
+            this.LblChosenURL.Size = new System.Drawing.Size(101, 20);
             this.LblChosenURL.TabIndex = 9;
             this.LblChosenURL.Text = "Chosen URL";
             // 
             // LblAddNewCategory
             // 
             this.LblAddNewCategory.AutoSize = true;
-            this.LblAddNewCategory.Location = new System.Drawing.Point(884, 13);
+            this.LblAddNewCategory.Location = new System.Drawing.Point(994, 16);
             this.LblAddNewCategory.Name = "LblAddNewCategory";
-            this.LblAddNewCategory.Size = new System.Drawing.Size(123, 17);
+            this.LblAddNewCategory.Size = new System.Drawing.Size(139, 20);
             this.LblAddNewCategory.TabIndex = 11;
             this.LblAddNewCategory.Text = "Add new Category";
             // 
             // TBoxAddNewCategory
             // 
-            this.TBoxAddNewCategory.Location = new System.Drawing.Point(888, 31);
+            this.TBoxAddNewCategory.Location = new System.Drawing.Point(999, 39);
             this.TBoxAddNewCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBoxAddNewCategory.Name = "TBoxAddNewCategory";
-            this.TBoxAddNewCategory.Size = new System.Drawing.Size(173, 22);
+            this.TBoxAddNewCategory.Size = new System.Drawing.Size(194, 26);
             this.TBoxAddNewCategory.TabIndex = 10;
             // 
             // CombBoxSelectAnExistingCategory
             // 
             this.CombBoxSelectAnExistingCategory.FormattingEnabled = true;
-            this.CombBoxSelectAnExistingCategory.Location = new System.Drawing.Point(679, 156);
+            this.CombBoxSelectAnExistingCategory.Location = new System.Drawing.Point(764, 195);
             this.CombBoxSelectAnExistingCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CombBoxSelectAnExistingCategory.Name = "CombBoxSelectAnExistingCategory";
-            this.CombBoxSelectAnExistingCategory.Size = new System.Drawing.Size(173, 24);
+            this.CombBoxSelectAnExistingCategory.Size = new System.Drawing.Size(194, 28);
             this.CombBoxSelectAnExistingCategory.TabIndex = 12;
             // 
             // LblSelectAnExistingCategory
             // 
             this.LblSelectAnExistingCategory.AutoSize = true;
-            this.LblSelectAnExistingCategory.Location = new System.Drawing.Point(677, 137);
+            this.LblSelectAnExistingCategory.Location = new System.Drawing.Point(762, 171);
             this.LblSelectAnExistingCategory.Name = "LblSelectAnExistingCategory";
-            this.LblSelectAnExistingCategory.Size = new System.Drawing.Size(179, 17);
+            this.LblSelectAnExistingCategory.Size = new System.Drawing.Size(201, 20);
             this.LblSelectAnExistingCategory.TabIndex = 13;
             this.LblSelectAnExistingCategory.Text = "Select an existing Category";
             // 
             // LblSelectYourUpdateInterval
             // 
             this.LblSelectYourUpdateInterval.AutoSize = true;
-            this.LblSelectYourUpdateInterval.Location = new System.Drawing.Point(676, 223);
+            this.LblSelectYourUpdateInterval.Location = new System.Drawing.Point(760, 279);
             this.LblSelectYourUpdateInterval.Name = "LblSelectYourUpdateInterval";
-            this.LblSelectYourUpdateInterval.Size = new System.Drawing.Size(172, 17);
+            this.LblSelectYourUpdateInterval.Size = new System.Drawing.Size(193, 20);
             this.LblSelectYourUpdateInterval.TabIndex = 15;
             this.LblSelectYourUpdateInterval.Text = "Select your update Inteval";
             this.LblSelectYourUpdateInterval.Click += new System.EventHandler(this.label8_Click);
@@ -198,39 +199,40 @@
             // CombBoxSelectYourUpdateInterval
             // 
             this.CombBoxSelectYourUpdateInterval.FormattingEnabled = true;
-            this.CombBoxSelectYourUpdateInterval.Location = new System.Drawing.Point(679, 242);
+            this.CombBoxSelectYourUpdateInterval.Location = new System.Drawing.Point(764, 302);
             this.CombBoxSelectYourUpdateInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CombBoxSelectYourUpdateInterval.Name = "CombBoxSelectYourUpdateInterval";
-            this.CombBoxSelectYourUpdateInterval.Size = new System.Drawing.Size(173, 24);
+            this.CombBoxSelectYourUpdateInterval.Size = new System.Drawing.Size(194, 28);
             this.CombBoxSelectYourUpdateInterval.TabIndex = 14;
             this.CombBoxSelectYourUpdateInterval.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // BtnRemovePodcast
             // 
-            this.BtnRemovePodcast.Location = new System.Drawing.Point(228, 199);
+            this.BtnRemovePodcast.Location = new System.Drawing.Point(256, 249);
             this.BtnRemovePodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRemovePodcast.Name = "BtnRemovePodcast";
-            this.BtnRemovePodcast.Size = new System.Drawing.Size(95, 41);
+            this.BtnRemovePodcast.Size = new System.Drawing.Size(107, 51);
             this.BtnRemovePodcast.TabIndex = 18;
             this.BtnRemovePodcast.Text = "Remove Podcast";
             this.BtnRemovePodcast.UseVisualStyleBackColor = true;
             // 
             // BtnAddPodcast
             // 
-            this.BtnAddPodcast.Location = new System.Drawing.Point(680, 296);
+            this.BtnAddPodcast.Location = new System.Drawing.Point(765, 370);
             this.BtnAddPodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddPodcast.Name = "BtnAddPodcast";
-            this.BtnAddPodcast.Size = new System.Drawing.Size(86, 41);
+            this.BtnAddPodcast.Size = new System.Drawing.Size(97, 51);
             this.BtnAddPodcast.TabIndex = 19;
             this.BtnAddPodcast.Text = "Add Podcast";
             this.BtnAddPodcast.UseVisualStyleBackColor = true;
+            this.BtnAddPodcast.Click += new System.EventHandler(this.BtnAddPodcast_Click);
             // 
             // ChangePodcast
             // 
-            this.ChangePodcast.Location = new System.Drawing.Point(344, 199);
+            this.ChangePodcast.Location = new System.Drawing.Point(387, 249);
             this.ChangePodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChangePodcast.Name = "ChangePodcast";
-            this.ChangePodcast.Size = new System.Drawing.Size(95, 41);
+            this.ChangePodcast.Size = new System.Drawing.Size(107, 51);
             this.ChangePodcast.TabIndex = 21;
             this.ChangePodcast.Text = "Change Podcast";
             this.ChangePodcast.UseVisualStyleBackColor = true;
@@ -238,10 +240,10 @@
             // 
             // BtnAddCategory
             // 
-            this.BtnAddCategory.Location = new System.Drawing.Point(887, 69);
+            this.BtnAddCategory.Location = new System.Drawing.Point(998, 86);
             this.BtnAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddCategory.Name = "BtnAddCategory";
-            this.BtnAddCategory.Size = new System.Drawing.Size(81, 41);
+            this.BtnAddCategory.Size = new System.Drawing.Size(91, 51);
             this.BtnAddCategory.TabIndex = 20;
             this.BtnAddCategory.Text = "Add Category";
             this.BtnAddCategory.UseVisualStyleBackColor = true;
@@ -249,30 +251,30 @@
             // 
             // BtnChangeCategory
             // 
-            this.BtnChangeCategory.Location = new System.Drawing.Point(127, 199);
+            this.BtnChangeCategory.Location = new System.Drawing.Point(143, 249);
             this.BtnChangeCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnChangeCategory.Name = "BtnChangeCategory";
-            this.BtnChangeCategory.Size = new System.Drawing.Size(95, 41);
+            this.BtnChangeCategory.Size = new System.Drawing.Size(107, 51);
             this.BtnChangeCategory.TabIndex = 23;
             this.BtnChangeCategory.Text = "Change Category";
             this.BtnChangeCategory.UseVisualStyleBackColor = true;
             // 
             // BtnRemoveCategory
             // 
-            this.BtnRemoveCategory.Location = new System.Drawing.Point(11, 199);
+            this.BtnRemoveCategory.Location = new System.Drawing.Point(12, 249);
             this.BtnRemoveCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRemoveCategory.Name = "BtnRemoveCategory";
-            this.BtnRemoveCategory.Size = new System.Drawing.Size(95, 41);
+            this.BtnRemoveCategory.Size = new System.Drawing.Size(107, 51);
             this.BtnRemoveCategory.TabIndex = 22;
             this.BtnRemoveCategory.Text = "Remove Category";
             this.BtnRemoveCategory.UseVisualStyleBackColor = true;
             // 
             // BtnPlayPodcast
             // 
-            this.BtnPlayPodcast.Location = new System.Drawing.Point(11, 397);
+            this.BtnPlayPodcast.Location = new System.Drawing.Point(12, 496);
             this.BtnPlayPodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnPlayPodcast.Name = "BtnPlayPodcast";
-            this.BtnPlayPodcast.Size = new System.Drawing.Size(171, 41);
+            this.BtnPlayPodcast.Size = new System.Drawing.Size(192, 51);
             this.BtnPlayPodcast.TabIndex = 28;
             this.BtnPlayPodcast.Text = "Play Podcast";
             this.BtnPlayPodcast.UseVisualStyleBackColor = true;
@@ -280,46 +282,46 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 242);
+            this.label1.Location = new System.Drawing.Point(8, 302);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.Size = new System.Drawing.Size(151, 20);
             this.label1.TabIndex = 29;
             this.label1.Text = "Podcast Description";
             // 
             // LblEpisodeDescription
             // 
             this.LblEpisodeDescription.AutoSize = true;
-            this.LblEpisodeDescription.Location = new System.Drawing.Point(340, 242);
+            this.LblEpisodeDescription.Location = new System.Drawing.Point(382, 302);
             this.LblEpisodeDescription.Name = "LblEpisodeDescription";
-            this.LblEpisodeDescription.Size = new System.Drawing.Size(134, 17);
+            this.LblEpisodeDescription.Size = new System.Drawing.Size(151, 20);
             this.LblEpisodeDescription.TabIndex = 30;
             this.LblEpisodeDescription.Text = "Episode Description";
             // 
             // LBoxPodcastDescription
             // 
             this.LBoxPodcastDescription.FormattingEnabled = true;
-            this.LBoxPodcastDescription.ItemHeight = 16;
-            this.LBoxPodcastDescription.Location = new System.Drawing.Point(11, 261);
+            this.LBoxPodcastDescription.ItemHeight = 20;
+            this.LBoxPodcastDescription.Location = new System.Drawing.Point(12, 326);
             this.LBoxPodcastDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LBoxPodcastDescription.Name = "LBoxPodcastDescription";
-            this.LBoxPodcastDescription.Size = new System.Drawing.Size(312, 132);
+            this.LBoxPodcastDescription.Size = new System.Drawing.Size(350, 164);
             this.LBoxPodcastDescription.TabIndex = 26;
             // 
             // LBoxEpisodeDescription
             // 
             this.LBoxEpisodeDescription.FormattingEnabled = true;
-            this.LBoxEpisodeDescription.ItemHeight = 16;
-            this.LBoxEpisodeDescription.Location = new System.Drawing.Point(344, 261);
+            this.LBoxEpisodeDescription.ItemHeight = 20;
+            this.LBoxEpisodeDescription.Location = new System.Drawing.Point(387, 326);
             this.LBoxEpisodeDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LBoxEpisodeDescription.Name = "LBoxEpisodeDescription";
-            this.LBoxEpisodeDescription.Size = new System.Drawing.Size(312, 132);
+            this.LBoxEpisodeDescription.Size = new System.Drawing.Size(350, 164);
             this.LBoxEpisodeDescription.TabIndex = 27;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 526);
+            this.ClientSize = new System.Drawing.Size(1205, 658);
             this.Controls.Add(this.LblEpisodeDescription);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnPlayPodcast);

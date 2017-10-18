@@ -79,10 +79,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datalayer\Datalayer.csproj">
-      <Project>{C06D900A-85E1-40D0-8F61-0E8B032DCC2C}</Project>
-      <Name>Datalayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{7650dda4-52d2-4a8d-b84b-368baddd26ec}</Project>
       <Name>Logic</Name>

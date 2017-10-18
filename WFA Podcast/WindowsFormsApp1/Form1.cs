@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
 
     {
+        Podcast podcast = new Logic.Podcast();
         public Form1()
         {
             InitializeComponent();
@@ -55,6 +56,19 @@ namespace WindowsFormsApp1
         {
             List<Category> listOfCategory = new List<Category>();
             
+        }
+
+        private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnAddPodcast_Click(object sender, EventArgs e)
+        {
+            string URL = TBoxChosenURL.Text;
+            podcast.addNewPod(URL);
+            
+
         }
     }
 }
