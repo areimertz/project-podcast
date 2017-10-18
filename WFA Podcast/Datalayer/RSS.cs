@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Datalayer
 {
-    class RSS
+    public class RSS
     {
 
         public class Rss : XmlAbstract

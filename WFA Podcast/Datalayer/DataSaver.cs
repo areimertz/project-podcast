@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Datalayer
 {
-    public class Class1
+    public class DataSaver
     {
+        public void SaveCategory(object o) {
+
+
+        }
     }
 }

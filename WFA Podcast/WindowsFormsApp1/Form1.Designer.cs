@@ -244,6 +244,7 @@
             this.BtnAddCategory.TabIndex = 20;
             this.BtnAddCategory.Text = "Add Category";
             this.BtnAddCategory.UseVisualStyleBackColor = true;
+            this.BtnAddCategory.Click += new System.EventHandler(this.BtnAddCategory_Click);
             // 
             // BtnChangeCategory
             // 
