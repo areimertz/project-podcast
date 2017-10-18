@@ -14,8 +14,8 @@ namespace Logic
         List<Category> listOfCategory = new List<Category>();
 
         public void fillCategory(string name) {
-            
 
+            var metod = 0;
         }
         
     }
