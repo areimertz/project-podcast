@@ -8,9 +8,13 @@ namespace Datalayer
 {
     public class DataSaver
     {
-        public void SaveCategory(object o) {
 
+        List<string> listOfCategory = new List<string>();
+         public void SaveCategory(string categoryName) {
 
+            listOfCategory.Add(categoryName);
+            
         }
     }
 }
+

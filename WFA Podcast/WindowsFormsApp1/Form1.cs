@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
+
     {
         public Form1()
         {
@@ -42,8 +44,16 @@ namespace WindowsFormsApp1
 
         }
 
-        private void BtnAddCategory_Click(object sender, EventArgs e)
+        private void BtnAddCategory_Click(object sender, EventArgs e) 
         {
+            Category test = new Category();
+            string text = TBoxAddNewCategory.Text;
+            test.fillCategory(text);
+        }
+
+        private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Category> listOfCategory = new List<Category>();
             
         }
     }

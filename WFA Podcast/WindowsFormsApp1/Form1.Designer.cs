@@ -66,6 +66,7 @@
             this.LBoxCategory.Name = "LBoxCategory";
             this.LBoxCategory.Size = new System.Drawing.Size(212, 164);
             this.LBoxCategory.TabIndex = 0;
+            this.LBoxCategory.SelectedIndexChanged += new System.EventHandler(this.LBoxCategory_SelectedIndexChanged);
             // 
             // LBoxPodcast
             // 

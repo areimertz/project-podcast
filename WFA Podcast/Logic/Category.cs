@@ -8,14 +8,15 @@ using Datalayer;
 
 namespace Logic
 {
-    class Category
+    public class Category :DataSaver
     {
         private DataSaver saveCategory = new DataSaver();
-        List<Category> listOfCategory = new List<Category>();
+        //List<Category> listOfCategory = new List<Category>();
 
-        public void fillCategory(string name) {
-
-            var metod = 0;
+        public void fillCategory(string newCategory) {
+                
+                SaveCategory(newCategory);
+            
         }
         
     }
