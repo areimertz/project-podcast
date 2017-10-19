@@ -78,13 +78,20 @@ namespace WindowsFormsApp1
         }
         public void fillCategories()
         {
-            string[] catArray = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\Categories");
-            foreach(String cat in catArray)
+            try
             {
-                string[] trimmadCat = cat.Split('\\');
-                int langd = trimmadCat.Length - 1;
-                string fixadCat = trimmadCat[langd];
-                LBoxCategory.Items.Add(fixadCat);
+                string[] catArray = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\Categories");
+                foreach (String cat in catArray)
+                {
+                    string[] trimmadCat = cat.Split('\\');
+                    int langd = trimmadCat.Length - 1;
+                    string fixadCat = trimmadCat[langd];
+                    LBoxCategory.Items.Add(fixadCat);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
     }
