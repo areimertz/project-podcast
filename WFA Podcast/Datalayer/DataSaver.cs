@@ -14,12 +14,16 @@ namespace Datalayer
         public void AddCategory(string category)
         {
             string path = Directory.GetCurrentDirectory() + @"\" + category;
+
         }
 
-        public bool SaveFolder(string category)
+        public bool SaveFolderCategory(string category)
         {
-            string folderName = category;
-            System.IO.Directory.CreateDirectory(folderName);
+            if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
+            {
+                Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categoris");
+            }
+            Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories" + category);
             return true;
         }
 
