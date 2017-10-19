@@ -17,7 +17,7 @@ namespace Logic
         public void addNewPod(string Url)
         {
             DataSaver dataSaver = new DataSaver();
-            dataSaver.metoden();
+            dataSaver.saveXML();
 
         
         }

@@ -6,12 +6,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+
 namespace Datalayer
 {
     public class DataSaver
     {
+        public void AddCategory(string category)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\" + category;
+        }
 
-        public void metoden()
+        public bool SaveFolder(string category)
+        {
+            string folderName = category;
+            System.IO.Directory.CreateDirectory(folderName);
+            return true;
+        }
+
+
+
+
+        public void saveXML()
         {
             XmlDocument xmlDoc = new XmlDocument();
             XmlTextWriter writer = new XmlTextWriter("podcasts.xml", null);
@@ -23,11 +38,13 @@ namespace Datalayer
 
 
         List<string> listOfCategory = new List<string>();
-         public void SaveCategory(string categoryName) {
+        public void SaveCategory(string categoryName)
+        {
 
             listOfCategory.Add(categoryName);
-            
+
         }
     }
 }
+
 
