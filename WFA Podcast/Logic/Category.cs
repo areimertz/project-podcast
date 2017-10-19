@@ -11,9 +11,9 @@ namespace Logic
     public class Category 
     {
         private DataSaver dataSaver = new DataSaver();
-        //List<Category> listOfCategory = new List<Category>();
+        
 
-        public void fillCategory(string newCategory) {
+        public void SaveFolderCategory(string newCategory) {
 
             dataSaver.SaveCategory(newCategory);
             

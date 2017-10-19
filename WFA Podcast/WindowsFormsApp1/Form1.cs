@@ -49,7 +49,7 @@ namespace WindowsFormsApp1
         {
             Category test = new Category();
             string text = TBoxAddNewCategory.Text;
-            test.fillCategory(text);
+            test.SaveFolderCategory(text);
         }
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
