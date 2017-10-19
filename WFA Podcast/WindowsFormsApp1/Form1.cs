@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -15,10 +16,11 @@ namespace WindowsFormsApp1
 
     {
         Podcast podcast = new Logic.Podcast();
-        Category test = new Category();
+        Category category = new Category();
         public Form1()
         {
             InitializeComponent();
+            fillCategories();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -50,13 +52,16 @@ namespace WindowsFormsApp1
         {
             
             string text = TBoxAddNewCategory.Text;
-            test.SaveCategory(text);
+            category.SaveCategory(text);
         }
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Category> listOfCategory = new List<Category>();
             
+           
+
+
+
         }
 
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +75,17 @@ namespace WindowsFormsApp1
             podcast.addNewPod(URL);
             
 
+        }
+        public void fillCategories()
+        {
+            string[] catArray = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\Categories");
+            foreach(String cat in catArray)
+            {
+                string[] trimmadCat = cat.Split('\\');
+                int langd = trimmadCat.Length - 1;
+                string fixadCat = trimmadCat[langd];
+                LBoxCategory.Items.Add(fixadCat);
+            }
         }
     }
 }

@@ -11,8 +11,10 @@ namespace Datalayer
 {
     public class DataSaver
     {
+        CategoryProperties catProp = new CategoryProperties();
         public List<CategoryProperties> getCategories()
         {
+            String namn = catProp.getName();
             if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
             {
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories");
