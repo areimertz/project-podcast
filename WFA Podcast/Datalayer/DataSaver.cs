@@ -13,6 +13,11 @@ namespace Datalayer
     {
         public List<CategoryProperties> getCategories()
         {
+            if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
+            {
+                Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories");
+            }
+
             List<CategoryProperties> categories = new List<CategoryProperties>();
             var folder = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\categories");
             foreach (var category in folder)
@@ -25,11 +30,11 @@ namespace Datalayer
 
         public bool SaveFolderCategory(string category)
         {
-            if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
+            if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\Categories"))
             {
-                Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categoris");
+                Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\Categories");
             }
-            Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories" + category);
+            System.IO.Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\Categories\" + category);
             return true;
         }
 
@@ -48,7 +53,7 @@ namespace Datalayer
 
 
         List<string> listOfCategory = new List<string>();
-        public void SaveCategory(string categoryName)
+        public void SparaCategory(string categoryName)
         {
 
             listOfCategory.Add(categoryName);

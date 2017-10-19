@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
 
     {
         Podcast podcast = new Logic.Podcast();
+        Category test = new Category();
         public Form1()
         {
             InitializeComponent();
@@ -47,9 +48,9 @@ namespace WindowsFormsApp1
 
         private void BtnAddCategory_Click(object sender, EventArgs e) 
         {
-            Category test = new Category();
+            
             string text = TBoxAddNewCategory.Text;
-            test.SaveFolderCategory(text);
+            test.SaveCategory(text);
         }
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)

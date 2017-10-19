@@ -13,9 +13,9 @@ namespace Logic
         private DataSaver dataSaver = new DataSaver();
         
 
-        public void SaveFolderCategory(string newCategory) {
+        public void SaveCategory(string newCategory) {
 
-            dataSaver.SaveCategory(newCategory);
+            dataSaver.SaveFolderCategory(newCategory);
             
         }
         
