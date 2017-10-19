@@ -11,10 +11,16 @@ namespace Datalayer
 {
     public class DataSaver
     {
-        public void AddCategory(string category)
+        public List<CategoryProperties> getCategories()
         {
-            string path = Directory.GetCurrentDirectory() + @"\" + category;
-
+            List<CategoryProperties> categories = new List<CategoryProperties>();
+            var folder = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\categories");
+            foreach (var category in folder)
+            {
+                var name = new DirectoryInfo(category);
+                categories.Add(new CategoryProperties { name = name.Name });
+            }
+            return categories;
         }
 
         public bool SaveFolderCategory(string category)
