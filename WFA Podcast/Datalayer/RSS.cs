@@ -16,8 +16,9 @@ namespace Datalayer
         {
             public override XmlDocument PodDocument(string urlString)
             {
-                //Ladda hem XML.
-                var xml = "";
+            //Ladda hem XML.
+            InternalClass test = new InternalClass();
+            var xml = test.xml;
                 using (var client = new System.Net.WebClient())
                 {
                     client.Encoding = Encoding.UTF8;

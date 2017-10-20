@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CategoryProperties.cs" />
     <Compile Include="DataSaver.cs" />
+    <Compile Include="PodcastProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RSS.cs" />
     <Compile Include="XmlAbstract.cs" />

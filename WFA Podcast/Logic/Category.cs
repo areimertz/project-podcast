@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datalayer;
+using System.IO;
 
 
 namespace Logic
@@ -31,6 +32,15 @@ namespace Logic
             {                    allaNamn.Add(name.ToString());
             }
             return allaNamn;
+        }
+
+       public void RemoveCategory(string category)
+        {
+            var path = Directory.GetCurrentDirectory() + @"\categories\" + category;
+
+            Directory.Delete(path, true);
+
+
         }
     }
 }

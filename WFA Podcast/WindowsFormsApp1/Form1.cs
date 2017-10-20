@@ -50,15 +50,15 @@ namespace WindowsFormsApp1
 
         private void BtnAddCategory_Click(object sender, EventArgs e) 
         {
-            LBoxCategory.Items.Clear();
+            
             string text = TBoxAddNewCategory.Text;
             category.SaveCategory(text);
-            fillCategories();
         }
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+
            
 
 
@@ -72,28 +72,59 @@ namespace WindowsFormsApp1
 
         private void BtnAddPodcast_Click(object sender, EventArgs e)
         {
-            string URL = TBoxChosenURL.Text;
-            podcast.addNewPod(URL);
-            
+            /*string URL = TBoxChosenURL.Text;
+            string Name = TBoxName.Text;
+            string Category = CombBoxSelectAnExistingCategory.Text;
+            string Interval = CombBoxSelectYourUpdateInterval.Text;
+
+            podcast.addNewPod(URL, Name, Category, Interval);*/
+            if (CombBoxSelectAnExistingCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the category this podcast should be in in the combobox above.");
+                return;
+            }
+            else
+            {
+                Podcast xmlfeed = new Podcast();
+                xmlfeed.getNewPod(TBoxName.Text, TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString());
+               // LBoxPodcast.Items.Clear();
+                //LBoxCategory.Items.Clear();
+                //fillCategories();
+                //MessageBox.Show(TBoxName.Text + " has now been added to the category " + CombBoxSelectAnExistingCategory.SelectedItem.ToString() + ".");
+            }
+
 
         }
+
+      
         public void fillCategories()
         {
             try
             {
-                string[] catArray = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\Categories");
+                string[] catArray = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\categories");
                 foreach (String cat in catArray)
                 {
                     string[] trimmadCat = cat.Split('\\');
                     int langd = trimmadCat.Length - 1;
                     string fixadCat = trimmadCat[langd];
                     LBoxCategory.Items.Add(fixadCat);
+                    CombBoxSelectAnExistingCategory.Items.Add(fixadCat);
                 }
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
             }
+        }
+
+        private void BtnRemoveCategory_Click(object sender, EventArgs e)
+        {
+            var chosenCategory = LBoxCategory.SelectedItem.ToString();
+
+            category.RemoveCategory(chosenCategory);
+
+            LBoxCategory.Items.Clear();
+            fillCategories();
         }
     }
 }

@@ -268,6 +268,7 @@
             this.BtnRemoveCategory.TabIndex = 22;
             this.BtnRemoveCategory.Text = "Remove Category";
             this.BtnRemoveCategory.UseVisualStyleBackColor = true;
+            this.BtnRemoveCategory.Click += new System.EventHandler(this.BtnRemoveCategory_Click);
             // 
             // BtnPlayPodcast
             // 

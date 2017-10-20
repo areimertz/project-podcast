@@ -5,22 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Datalayer;
+using System.IO;
 
 
 namespace Logic
 {
     public class Podcast
     {
+        RSS datalayer = new RSS();
 
 
 
-        public void addNewPod(string Url)
+
+        public void getNewPod(string Url, string category, string name)
         {
-            DataSaver dataSaver = new DataSaver();
-            dataSaver.saveXML();
-
-        
+            DataSaver newPod = new DataSaver();
+            newPod.addNewPod(Url, category, name);
         }
+    }
+}
 
-}
-}
