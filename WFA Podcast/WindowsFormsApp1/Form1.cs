@@ -50,9 +50,10 @@ namespace WindowsFormsApp1
 
         private void BtnAddCategory_Click(object sender, EventArgs e) 
         {
-            
+            LBoxCategory.Items.Clear();
             string text = TBoxAddNewCategory.Text;
             category.SaveCategory(text);
+            fillCategories();
         }
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
