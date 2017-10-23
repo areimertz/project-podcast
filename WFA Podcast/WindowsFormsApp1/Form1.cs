@@ -54,6 +54,9 @@ namespace WindowsFormsApp1
             
             string text = TBoxAddNewCategory.Text;
             category.SaveCategory(text);
+            LBoxCategory.Items.Clear();
+            CombBoxSelectAnExistingCategory.Items.Clear();
+            fillCategories();
         }
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,7 +94,7 @@ namespace WindowsFormsApp1
                 xmlfeed.getNewPod( TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString(), TBoxName.Text);
                LBoxPodcast.Items.Clear();
                 LBoxCategory.Items.Clear();
-                fillCategories();
+                
                 MessageBox.Show(TBoxName.Text + " has now been added to the category " + CombBoxSelectAnExistingCategory.SelectedItem.ToString() + ".");
             }
 
@@ -122,7 +125,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string[] podArray = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Categories\"  +  + @"\");
+                string[] podArray = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Categories\"  +   @"\");
                 foreach (var pod in podArray)
                 {
                     string[] trimmadpod = pod.Split('\\');
