@@ -14,7 +14,7 @@ namespace Datalayer
 
         public class RSS : XmlAbstract
         {
-            public override XmlDocument PodDocument(string urlString)
+            public override XmlDocument PodDocument(string urlPod)
             {
             //Ladda hem XML.
             InternalClass test = new InternalClass();
@@ -22,11 +22,11 @@ namespace Datalayer
                 using (var client = new System.Net.WebClient())
                 {
                     client.Encoding = Encoding.UTF8;
-                    xml = client.DownloadString(urlString);
+                    xml = client.DownloadString(urlPod);
                 }
 
                 //Skapa en objektrepresentation.
-                var dom = new System.Xml.XmlDocument();
+                XmlDocument dom = new XmlDocument();
                 dom.LoadXml(xml);
                 return dom;
 

@@ -13,6 +13,7 @@ namespace Logic
     public class Podcast
     {
         RSS datalayer = new RSS();
+        DataSaver newPod = new DataSaver();
 
 
 

@@ -11,9 +11,9 @@ namespace Datalayer
     {
         public abstract XmlDocument PodDocument(string urlPod);
 
-        public virtual void writeToXml(string url, string category, string name)
+        public virtual void writeToXml(string Url, string category, string name)
         {
-            Console.WriteLine(url + category + name);
+            Console.WriteLine(Url + "" + category + "" + name);
         }
 
     }

@@ -66,8 +66,8 @@ namespace Datalayer
         { 
         RSS rssVar = new RSS();
         XmlDocument doc = rssVar.PodDocument(Url);
-        string path = Directory.GetCurrentDirectory() +  @"\" + category + @"\" + name  + @".xml";
-        XmlWriterSettings settings = new XmlWriterSettings();
+            string path = Directory.GetCurrentDirectory() + @"\categories\" + category + @"\" + name + @".xml";
+            XmlWriterSettings settings = new XmlWriterSettings();
         settings.Indent = true;
             settings.IndentChars = ("    ");
 

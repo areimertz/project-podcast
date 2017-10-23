@@ -12,7 +12,7 @@ namespace Datalayer
         public string intervall { get; set; }
         public string category { get; set; }
 
-        public string url { get; set; }
+        public string Url { get; set; }
 
         public override string ToString()
         {

@@ -86,11 +86,11 @@ namespace WindowsFormsApp1
             else
             {
                 Podcast xmlfeed = new Podcast();
-                xmlfeed.getNewPod(TBoxName.Text, TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString());
-               // LBoxPodcast.Items.Clear();
-                //LBoxCategory.Items.Clear();
-                //fillCategories();
-                //MessageBox.Show(TBoxName.Text + " has now been added to the category " + CombBoxSelectAnExistingCategory.SelectedItem.ToString() + ".");
+                xmlfeed.getNewPod( TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString(), TBoxName.Text);
+               LBoxPodcast.Items.Clear();
+                LBoxCategory.Items.Clear();
+                fillCategories();
+                MessageBox.Show(TBoxName.Text + " has now been added to the category " + CombBoxSelectAnExistingCategory.SelectedItem.ToString() + ".");
             }
 
 
@@ -101,7 +101,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string[] catArray = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\categories");
+                string[] catArray = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\Categories");
                 foreach (String cat in catArray)
                 {
                     string[] trimmadCat = cat.Split('\\');
