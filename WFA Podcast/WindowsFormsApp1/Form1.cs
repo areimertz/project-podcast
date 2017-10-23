@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             fillCategories();
+            fillpodcasts();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -67,6 +68,7 @@ namespace WindowsFormsApp1
 
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
         {
+            fillpodcasts();
 
         }
 
@@ -112,6 +114,25 @@ namespace WindowsFormsApp1
                 }
             }
             catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        public void fillpodcasts()
+        {
+            try
+            {
+                string[] podArray = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Categories\"  +  + @"\");
+                foreach (var pod in podArray)
+                {
+                    string[] trimmadpod = pod.Split('\\');
+                    int langd = trimmadpod.Length - 1;
+                    string fixadpod = trimmadpod[langd];
+                    LBoxPodcast.Items.Add(fixadpod);
+                    
+                }
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
