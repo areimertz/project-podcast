@@ -25,7 +25,7 @@ namespace Logic
 
         }
 
-        public List<String> fillListCategory()
+       public List<String> fillListCategory()
         {
             List<String> allaNamn = new List<String>();
             foreach (var name in ListOfCategories)

@@ -54,13 +54,6 @@ namespace Datalayer
         }
 
 
-        List<string> listOfCategory = new List<string>();
-        public void SparaCategory(string categoryName)
-        {
-
-            listOfCategory.Add(categoryName);
-
-        }
 
         public void addNewPod(string Url, string category, string name)
         { 
