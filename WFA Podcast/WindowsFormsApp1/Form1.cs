@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
 
     {
         Podcast podcast = new Logic.Podcast();
+        Podcast pod = new Podcast();
         Category category = new Category();
         public Form1()
         {
@@ -77,26 +78,11 @@ namespace WindowsFormsApp1
 
         private void BtnAddPodcast_Click(object sender, EventArgs e)
         {
-            /*string URL = TBoxChosenURL.Text;
-            string Name = TBoxName.Text;
-            string Category = CombBoxSelectAnExistingCategory.Text;
-            string Interval = CombBoxSelectYourUpdateInterval.Text;
-
-            podcast.addNewPod(URL, Name, Category, Interval);*/
-            if (CombBoxSelectAnExistingCategory.SelectedItem == null)
-            {
-                MessageBox.Show("Please select the category this podcast should be in in the combobox above.");
-                return;
-            }
-            else
-            {
-                Podcast xmlfeed = new Podcast();
-                xmlfeed.getNewPod( TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString(), TBoxName.Text);
-               LBoxPodcast.Items.Clear();
-                LBoxCategory.Items.Clear();
-                
-                MessageBox.Show(TBoxName.Text + " has now been added to the category " + CombBoxSelectAnExistingCategory.SelectedItem.ToString() + ".");
-            }
+            
+            var podName = TBoxName.Text;
+            var url = TBoxChosenURL.Text;
+            var cat = CombBoxSelectAnExistingCategory.SelectedItem.ToString();
+            pod.podcastinfo(url, cat, podName);
 
 
         }

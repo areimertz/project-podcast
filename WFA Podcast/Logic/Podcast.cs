@@ -3,29 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using Datalayer;
-using System.IO;
-
 
 namespace Logic
 {
     public class Podcast
     {
-        RSS datalayer = new RSS();
-        DataSaver newPod = new DataSaver();
-       
-      
+        
+            public string name { get; set; }
+            public string intervall { get; set; }
+            public string category { get; set; }
 
+            public string url { get; set; }
 
+            public override string ToString()
+            {
+                return name;
+            }
 
-        public void getNewPod(string Url, string category, string name)
-        {
-            DataSaver newPod = new DataSaver();
-            newPod.addNewPod(Url, category, name);
+            public string getName()
+            {
+                return name;
+            }
+        public void podcastinfo(string Url, string category, string name) {
+            RSS rssreader = new RSS();
+            this.name = name;
+            this.url = url;
+            this.category = category;
+            rssreader.readrss(Url, name, category);
+            
         }
 
-       
+        
     }
 }
-

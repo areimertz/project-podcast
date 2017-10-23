@@ -1,39 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
 namespace Datalayer
 {
-        internal class InternalClass
-        {
-            internal string xml = "";
-        }
 
-        public class RSS : XmlAbstract
+
+    public class RSS
+    {
+
+
+
+        public void readrss(string Url, string name, string category)
         {
-            public override XmlDocument PodDocument(string urlPod)
+            using (var client = new WebClient())
             {
-            //Ladda hem XML.
-            InternalClass test = new InternalClass();
-            var xml = test.xml;
-                using (var client = new System.Net.WebClient())
-                {
-                    client.Encoding = Encoding.UTF8;
-                    xml = client.DownloadString(urlPod);
-                }
-
-                //Skapa en objektrepresentation.
-                XmlDocument dom = new XmlDocument();
-                dom.LoadXml(xml);
-                return dom;
-
-
-
+                string path = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".xml";
+                client.DownloadFile(Url, path);
+                client.Dispose();
             }
         }
+
+
     }
+}
+
 
     

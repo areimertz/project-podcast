@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Podcast.cs" />
-    <Compile Include="PodcastObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
