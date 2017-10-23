@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Logic;
 using System.IO;
 
-
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
@@ -22,6 +21,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             fillCategories();
+            fillpodcasts();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -54,11 +54,14 @@ namespace WindowsFormsApp1
             
             string text = TBoxAddNewCategory.Text;
             category.SaveCategory(text);
+            LBoxCategory.Items.Clear();
+            CombBoxSelectAnExistingCategory.Items.Clear();
+            fillCategories();
         }
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillpodcasts(LBoxCategory.SelectedItem.ToString());
+            
 
            
 
@@ -68,7 +71,7 @@ namespace WindowsFormsApp1
 
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //fillpodcasts();
+            fillpodcasts();
 
         }
 
@@ -91,7 +94,7 @@ namespace WindowsFormsApp1
                 xmlfeed.getNewPod( TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString(), TBoxName.Text);
                LBoxPodcast.Items.Clear();
                 LBoxCategory.Items.Clear();
-                fillCategories();
+                
                 MessageBox.Show(TBoxName.Text + " has now been added to the category " + CombBoxSelectAnExistingCategory.SelectedItem.ToString() + ".");
             }
 
@@ -118,21 +121,17 @@ namespace WindowsFormsApp1
                 Console.WriteLine(e);
             }
         }
-        public void fillpodcasts(String category)
+        public void fillpodcasts()
         {
-            category = LBoxCategory.SelectedItem.ToString();
             try
             {
-                string[] podArray = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Categories\" + category);
+                string[] podArray = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Categories\"  +   @"\");
                 foreach (var pod in podArray)
                 {
-
                     string[] trimmadpod = pod.Split('\\');
                     int langd = trimmadpod.Length - 1;
                     string fixadpod = trimmadpod[langd];
-                    LBoxPodcast.Items.Clear();
                     LBoxPodcast.Items.Add(fixadpod);
-                    
                     
                 }
             }
