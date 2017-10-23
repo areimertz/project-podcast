@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
 
     {
         Podcast podcast = new Logic.Podcast();
-        Podcast pod = new Podcast();
+        
         Category category = new Category();
         public Form1()
         {
@@ -72,17 +72,17 @@ namespace WindowsFormsApp1
 
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+          
 
         }
 
         private void BtnAddPodcast_Click(object sender, EventArgs e)
         {
-            
+           
             var podName = TBoxName.Text;
             var url = TBoxChosenURL.Text;
             var cat = CombBoxSelectAnExistingCategory.SelectedItem.ToString();
-            pod.podcastinfo(url, cat, podName);
+            podcast.podcastinfo(url, cat, podName);
 
 
         }
