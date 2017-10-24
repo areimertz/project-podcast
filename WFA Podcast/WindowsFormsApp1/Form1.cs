@@ -83,8 +83,12 @@ namespace WindowsFormsApp1
             var url = TBoxChosenURL.Text;
             var cat = CombBoxSelectAnExistingCategory.SelectedItem.ToString();
             podcast.podcastinfo(url, cat, podName);
-
-
+            TBoxName.Clear();
+            TBoxChosenURL.Clear();
+            LBoxCategory.Items.Clear();
+            CombBoxSelectAnExistingCategory.Items.Clear();
+            fillCategories();
+            MessageBox.Show("Podcast added");
         }
 
       
@@ -113,12 +117,12 @@ namespace WindowsFormsApp1
             try
             {
                 string[] podArray = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Categories\"  +  category );
-                foreach (var pod in podArray)
+                foreach (String pod in podArray)
                 {
                     string[] trimmadpod = pod.Split('\\');
                     int langd = trimmadpod.Length - 1;
                     string fixadpod = trimmadpod[langd];
-                    LBoxPodcast.Items.Clear();
+                    
                     LBoxPodcast.Items.Add(fixadpod);
                     
                 }
