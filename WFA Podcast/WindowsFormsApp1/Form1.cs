@@ -169,6 +169,7 @@ namespace WindowsFormsApp1
 
         private void BtnRemovePodcast_Click(object sender, EventArgs e)
         {
+            category.removeFile(LBoxCategory.Text, LBoxPodcast.Text);
             cblEpisode.Items.Clear();
             LBoxPodcast.Items.Clear();
             LBoxCategory.Items.Clear();
