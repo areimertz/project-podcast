@@ -42,5 +42,13 @@ namespace Logic
 
 
         }
+
+        public void removeFile(string category, string name)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
+
+            File.Delete(path);
+        }
+
     }
 }

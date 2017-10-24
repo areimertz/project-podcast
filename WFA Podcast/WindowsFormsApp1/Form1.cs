@@ -166,5 +166,14 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void BtnRemovePodcast_Click(object sender, EventArgs e)
+        {
+            cblEpisode.Items.Clear();
+            LBoxPodcast.Items.Clear();
+            LBoxCategory.Items.Clear();
+            fillCategories();
+
+        }
     }
 }
