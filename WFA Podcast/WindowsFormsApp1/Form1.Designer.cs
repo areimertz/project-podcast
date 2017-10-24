@@ -311,6 +311,7 @@
             this.LBoxPodcastDescription.Name = "LBoxPodcastDescription";
             this.LBoxPodcastDescription.Size = new System.Drawing.Size(312, 132);
             this.LBoxPodcastDescription.TabIndex = 26;
+            this.LBoxPodcastDescription.SelectedIndexChanged += new System.EventHandler(this.LBoxPodcastDescription_SelectedIndexChanged);
             // 
             // LBoxEpisodeDescription
             // 
@@ -321,6 +322,7 @@
             this.LBoxEpisodeDescription.Name = "LBoxEpisodeDescription";
             this.LBoxEpisodeDescription.Size = new System.Drawing.Size(312, 132);
             this.LBoxEpisodeDescription.TabIndex = 27;
+            this.LBoxEpisodeDescription.SelectedIndexChanged += new System.EventHandler(this.LBoxEpisodeDescription_SelectedIndexChanged);
             // 
             // cblEpisode
             // 

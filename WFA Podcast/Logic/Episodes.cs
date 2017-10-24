@@ -8,12 +8,14 @@ using System.Xml;
 using Datalayer;
 using System.ServiceModel.Syndication;
 using System.Windows.Forms;
+using System.Xml.Linq;
+
 
 namespace Logic
 {
    public class Episodes
     {
-
+            List<Episode> episodes = new List<Episode>();
 
         public void getEpisodes(string category, string name, CheckedListBox cbox)
         {
@@ -23,12 +25,13 @@ namespace Logic
             var feed = SyndicationFeed.Load(xml);
             xml.Close();
 
-            List<Episode> episodes = new List<Episode>();
+
 
             foreach (var episode in feed.Items)
             {
                 var pod = new Episode()
                 {
+                    Description = episode.Summary.Text,
                     Title = episode.Title.Text,
                 };
                 foreach (var link in episode.Links)
@@ -49,5 +52,19 @@ namespace Logic
          
         }
 
-    }
+        public void getDescription(string name, ListBox lbDescription)
+        {
+            var descrip = from x in episodes
+                          where x.Title == name
+                          select x.Description;
+
+            lbDescription.Items.Add(descrip.Single().ToString());
+
+
+
+
+         
+           
+        }
+        }
 }

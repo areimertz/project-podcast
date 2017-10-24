@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datalayer;
+using System.Xml;
+using System.ServiceModel.Syndication;
+using System.Windows.Forms;
+using System.IO;
+using System.Xml.Linq;
 
 namespace Logic
 {
@@ -34,6 +39,19 @@ namespace Logic
             
         }
 
-        
+        public void getPodDescription(string category, string name, ListBox lbox)
+        {
+            var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
+
+            var xml = XmlReader.Create(paths);
+            var feed = SyndicationFeed.Load(xml);
+            xml.Close();
+
+            var description = feed.Description.Text;
+            lbox.Items.Add(description);
+
+          
+
+        }
     }
 }

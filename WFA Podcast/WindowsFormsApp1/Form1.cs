@@ -77,6 +77,7 @@ namespace WindowsFormsApp1
             var category = LBoxCategory.SelectedItem.ToString();
             var path = LBoxPodcast.SelectedItem.ToString();
             episode.getEpisodes(category, path, cblEpisode);
+            podcast.getPodDescription(category, path, LBoxPodcastDescription);
 
 
         }
@@ -152,9 +153,10 @@ namespace WindowsFormsApp1
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var category = LBoxCategory.SelectedItem.ToString();
-            var path = LBoxPodcast.SelectedItem.ToString();
-            episode.getEpisodes(category, path, cblEpisode);
+            LBoxEpisodeDescription.Items.Clear();
+            var epi = cblEpisode.SelectedItem.ToString();
+            episode.getDescription(epi, LBoxEpisodeDescription);
+           
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -180,6 +182,16 @@ namespace WindowsFormsApp1
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void LBoxEpisodeDescription_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LBoxPodcastDescription_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }
