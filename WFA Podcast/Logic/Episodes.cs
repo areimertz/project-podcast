@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using Datalayer;
 using System.ServiceModel.Syndication;
+using System.Windows.Forms;
 
 namespace Logic
 {
@@ -14,9 +15,9 @@ namespace Logic
     {
 
 
-        public void getEpisodes(string category, string name)
+        public void getEpisodes(string category, string name, CheckedListBox cbox)
         {
-            var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".xml";
+            var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
 
             var xml = XmlReader.Create(paths);
             var feed = SyndicationFeed.Load(xml);
@@ -40,6 +41,10 @@ namespace Logic
 
                 }
                 episodes.Add(pod);
+            }
+            foreach (var item in episodes)
+            {
+                cbox.Items.Add(item, false);
             }
          
         }

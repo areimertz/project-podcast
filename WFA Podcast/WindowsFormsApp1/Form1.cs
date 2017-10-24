@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
 
     {
         Podcast podcast = new Logic.Podcast();
-        
+        Episodes episode = new Episodes();
         Category category = new Category();
         public Form1()
         {
@@ -72,7 +72,11 @@ namespace WindowsFormsApp1
 
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+            cblEpisode.Items.Clear();
+            var category = LBoxCategory.SelectedItem.ToString();
+            var path = LBoxPodcast.SelectedItem.ToString();
+            episode.getEpisodes(category, path, cblEpisode);
+
 
         }
 
@@ -142,5 +146,14 @@ namespace WindowsFormsApp1
             LBoxCategory.Items.Clear();
             fillCategories();
         }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var category = LBoxCategory.SelectedItem.ToString();
+            var path = LBoxPodcast.SelectedItem.ToString();
+            episode.getEpisodes(category, path, cblEpisode);
+        }
+
+     
     }
 }
