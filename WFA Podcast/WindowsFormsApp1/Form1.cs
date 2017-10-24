@@ -176,5 +176,10 @@ namespace WindowsFormsApp1
             fillCategories();
 
         }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
