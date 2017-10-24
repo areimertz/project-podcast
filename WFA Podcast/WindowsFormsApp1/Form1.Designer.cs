@@ -55,6 +55,14 @@
             this.LBoxPodcastDescription = new System.Windows.Forms.ListBox();
             this.LBoxEpisodeDescription = new System.Windows.Forms.ListBox();
             this.cblEpisode = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LchoosePodcast = new System.Windows.Forms.Label();
+            this.LChangePodcast = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // LBoxCategory
@@ -179,7 +187,7 @@
             // LblSelectYourUpdateInterval
             // 
             this.LblSelectYourUpdateInterval.AutoSize = true;
-            this.LblSelectYourUpdateInterval.Location = new System.Drawing.Point(676, 223);
+            this.LblSelectYourUpdateInterval.Location = new System.Drawing.Point(676, 199);
             this.LblSelectYourUpdateInterval.Name = "LblSelectYourUpdateInterval";
             this.LblSelectYourUpdateInterval.Size = new System.Drawing.Size(172, 17);
             this.LblSelectYourUpdateInterval.TabIndex = 15;
@@ -189,7 +197,7 @@
             // CombBoxSelectYourUpdateInterval
             // 
             this.CombBoxSelectYourUpdateInterval.FormattingEnabled = true;
-            this.CombBoxSelectYourUpdateInterval.Location = new System.Drawing.Point(679, 242);
+            this.CombBoxSelectYourUpdateInterval.Location = new System.Drawing.Point(679, 218);
             this.CombBoxSelectYourUpdateInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CombBoxSelectYourUpdateInterval.Name = "CombBoxSelectYourUpdateInterval";
             this.CombBoxSelectYourUpdateInterval.Size = new System.Drawing.Size(173, 24);
@@ -201,17 +209,17 @@
             this.BtnRemovePodcast.Location = new System.Drawing.Point(228, 199);
             this.BtnRemovePodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRemovePodcast.Name = "BtnRemovePodcast";
-            this.BtnRemovePodcast.Size = new System.Drawing.Size(95, 41);
+            this.BtnRemovePodcast.Size = new System.Drawing.Size(143, 41);
             this.BtnRemovePodcast.TabIndex = 18;
             this.BtnRemovePodcast.Text = "Remove Podcast";
             this.BtnRemovePodcast.UseVisualStyleBackColor = true;
             // 
             // BtnAddPodcast
             // 
-            this.BtnAddPodcast.Location = new System.Drawing.Point(680, 296);
+            this.BtnAddPodcast.Location = new System.Drawing.Point(680, 261);
             this.BtnAddPodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddPodcast.Name = "BtnAddPodcast";
-            this.BtnAddPodcast.Size = new System.Drawing.Size(86, 41);
+            this.BtnAddPodcast.Size = new System.Drawing.Size(114, 41);
             this.BtnAddPodcast.TabIndex = 19;
             this.BtnAddPodcast.Text = "Add Podcast";
             this.BtnAddPodcast.UseVisualStyleBackColor = true;
@@ -219,10 +227,10 @@
             // 
             // ChangePodcast
             // 
-            this.ChangePodcast.Location = new System.Drawing.Point(344, 199);
+            this.ChangePodcast.Location = new System.Drawing.Point(1113, 140);
             this.ChangePodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChangePodcast.Name = "ChangePodcast";
-            this.ChangePodcast.Size = new System.Drawing.Size(95, 41);
+            this.ChangePodcast.Size = new System.Drawing.Size(123, 41);
             this.ChangePodcast.TabIndex = 21;
             this.ChangePodcast.Text = "Change Podcast";
             this.ChangePodcast.UseVisualStyleBackColor = true;
@@ -233,7 +241,7 @@
             this.BtnAddCategory.Location = new System.Drawing.Point(887, 69);
             this.BtnAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddCategory.Name = "BtnAddCategory";
-            this.BtnAddCategory.Size = new System.Drawing.Size(81, 41);
+            this.BtnAddCategory.Size = new System.Drawing.Size(122, 41);
             this.BtnAddCategory.TabIndex = 20;
             this.BtnAddCategory.Text = "Add Category";
             this.BtnAddCategory.UseVisualStyleBackColor = true;
@@ -241,10 +249,10 @@
             // 
             // BtnChangeCategory
             // 
-            this.BtnChangeCategory.Location = new System.Drawing.Point(127, 199);
+            this.BtnChangeCategory.Location = new System.Drawing.Point(887, 261);
             this.BtnChangeCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnChangeCategory.Name = "BtnChangeCategory";
-            this.BtnChangeCategory.Size = new System.Drawing.Size(95, 41);
+            this.BtnChangeCategory.Size = new System.Drawing.Size(163, 41);
             this.BtnChangeCategory.TabIndex = 23;
             this.BtnChangeCategory.Text = "Change Category";
             this.BtnChangeCategory.UseVisualStyleBackColor = true;
@@ -254,7 +262,7 @@
             this.BtnRemoveCategory.Location = new System.Drawing.Point(11, 199);
             this.BtnRemoveCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRemoveCategory.Name = "BtnRemoveCategory";
-            this.BtnRemoveCategory.Size = new System.Drawing.Size(95, 41);
+            this.BtnRemoveCategory.Size = new System.Drawing.Size(150, 41);
             this.BtnRemoveCategory.TabIndex = 22;
             this.BtnRemoveCategory.Text = "Remove Category";
             this.BtnRemoveCategory.UseVisualStyleBackColor = true;
@@ -317,11 +325,87 @@
             this.cblEpisode.TabIndex = 31;
             this.cblEpisode.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(885, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 17);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Choose Category";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(888, 157);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(173, 24);
+            this.comboBox1.TabIndex = 33;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(885, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(156, 17);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "New name for Category";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(887, 220);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(174, 22);
+            this.textBox1.TabIndex = 35;
+            // 
+            // LchoosePodcast
+            // 
+            this.LchoosePodcast.AutoSize = true;
+            this.LchoosePodcast.Location = new System.Drawing.Point(1110, 13);
+            this.LchoosePodcast.Name = "LchoosePodcast";
+            this.LchoosePodcast.Size = new System.Drawing.Size(111, 17);
+            this.LchoosePodcast.TabIndex = 36;
+            this.LchoosePodcast.Text = "Choose Podcast";
+            // 
+            // LChangePodcast
+            // 
+            this.LChangePodcast.AutoSize = true;
+            this.LChangePodcast.Location = new System.Drawing.Point(1110, 67);
+            this.LChangePodcast.Name = "LChangePodcast";
+            this.LChangePodcast.Size = new System.Drawing.Size(129, 17);
+            this.LChangePodcast.TabIndex = 37;
+            this.LChangePodcast.Text = "New name Podcast";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(1113, 29);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(161, 24);
+            this.comboBox2.TabIndex = 38;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(1113, 87);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(161, 22);
+            this.textBox2.TabIndex = 39;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 526);
+            this.ClientSize = new System.Drawing.Size(1311, 526);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.LChangePodcast);
+            this.Controls.Add(this.LchoosePodcast);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cblEpisode);
             this.Controls.Add(this.LblEpisodeDescription);
             this.Controls.Add(this.label1);
@@ -387,6 +471,14 @@
         private System.Windows.Forms.ListBox LBoxPodcastDescription;
         private System.Windows.Forms.ListBox LBoxEpisodeDescription;
         private System.Windows.Forms.CheckedListBox cblEpisode;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label LchoosePodcast;
+        private System.Windows.Forms.Label LChangePodcast;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

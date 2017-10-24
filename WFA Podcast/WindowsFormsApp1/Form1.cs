@@ -57,6 +57,7 @@ namespace WindowsFormsApp1
             category.SaveCategory(text);
             LBoxCategory.Items.Clear();
             CombBoxSelectAnExistingCategory.Items.Clear();
+            TBoxAddNewCategory.Clear();
             fillCategories();
         }
 
@@ -64,7 +65,7 @@ namespace WindowsFormsApp1
         {
 
 
-
+            LBoxPodcast.Items.Clear();
             fillpodcasts(LBoxCategory.SelectedItem.ToString());
 
 
@@ -144,6 +145,8 @@ namespace WindowsFormsApp1
             category.RemoveCategory(chosenCategory);
 
             LBoxCategory.Items.Clear();
+            LBoxPodcast.Items.Clear();
+            cblEpisode.Items.Clear();
             fillCategories();
         }
 
@@ -154,6 +157,14 @@ namespace WindowsFormsApp1
             episode.getEpisodes(category, path, cblEpisode);
         }
 
-     
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
