@@ -284,6 +284,7 @@
             this.BtnPlayPodcast.TabIndex = 28;
             this.BtnPlayPodcast.Text = "Play Podcast";
             this.BtnPlayPodcast.UseVisualStyleBackColor = true;
+            this.BtnPlayPodcast.Click += new System.EventHandler(this.BtnPlayPodcast_Click);
             // 
             // label1
             // 

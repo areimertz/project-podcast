@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
 using System.IO;
+using System.Diagnostics;
 
 namespace WindowsFormsApp1
 {
@@ -209,6 +210,13 @@ namespace WindowsFormsApp1
 
             fillCategories();
 
+        }
+
+        private void BtnPlayPodcast_Click(object sender, EventArgs e)
+        {
+            var selected = cblEpisode.SelectedItem.ToString();
+            var url = episode.GetPlayablePod(selected);
+            Process.Start(url);
         }
     }
 }

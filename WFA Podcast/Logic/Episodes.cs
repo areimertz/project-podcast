@@ -59,12 +59,16 @@ namespace Logic
                           select x.Description;
 
             lbDescription.Items.Add(descrip.Single().ToString());
+ 
+        }
+        public string GetPlayablePod(string name)
+        {
+            var Url = from x in episodes
+                              where x.Title == name
+                              select x.Url;
 
-
-
-
-         
-           
+                              
+            return Url.Single().ToString();
         }
         }
 }
