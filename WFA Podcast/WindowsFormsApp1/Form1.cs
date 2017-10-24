@@ -109,6 +109,7 @@ namespace WindowsFormsApp1
                     int langd = trimmadCat.Length - 1;
                     string fixadCat = trimmadCat[langd];
                     LBoxCategory.Items.Add(fixadCat);
+                    cbnewCategory.Items.Add(fixadCat);
                     CombBoxSelectAnExistingCategory.Items.Add(fixadCat);
                 }
             }
@@ -128,7 +129,7 @@ namespace WindowsFormsApp1
                     string[] trimmadpod = pod.Split('\\');
                     int langd = trimmadpod.Length - 1;
                     string fixadpod = trimmadpod[langd];
-                    
+                    cbChoosePodCat.Items.Add(fixadpod);
                     LBoxPodcast.Items.Add(fixadpod);
                     
                 }
@@ -192,6 +193,22 @@ namespace WindowsFormsApp1
         private void LBoxPodcastDescription_SelectedIndexChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void BtnChangeCategory_Click(object sender, EventArgs e)
+        {
+            category.changeCategory(cbnewCategory.Text, cbChoosePodCat.Text, LBoxCategory.Text);
+            MessageBox.Show("Podcast has been moved to " + cbnewCategory.SelectedItem.ToString() + ".");
+            cblEpisode.Items.Clear();
+            LBoxPodcast.Items.Clear();
+            LBoxCategory.Items.Clear();
+            cbnewCategory.ResetText();
+            cbChoosePodCat.ResetText();
+            cbnewCategory.Items.Clear();
+            cbChoosePodCat.Items.Clear();
+
+            fillCategories();
+
         }
     }
 }

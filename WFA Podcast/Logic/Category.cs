@@ -50,5 +50,14 @@ namespace Logic
             File.Delete(path);
         }
 
+        public void changeCategory(string category, string name, string newCategory)
+        {
+            string path1 = Directory.GetCurrentDirectory() + @"\categories\" + newCategory + @"\" + name;
+            string path2 = Directory.GetCurrentDirectory() + @"\categories\" + category + @"\" + name;
+
+            File.Move(path1, path2);
+        }
+
+
     }
 }
