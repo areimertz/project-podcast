@@ -121,7 +121,7 @@ namespace WindowsFormsApp1
 
         private void BtnAddPodcast_Click(object sender, EventArgs e)
         {
-            if (Validator.textFieldNotEmpty(TBoxName, " Name") && Validator.textFieldNotEmpty(TBoxChosenURL, " Chosen Url"))
+            if (Validator.textFieldNotEmpty(TBoxName, " Name") && Validator.textFieldNotEmpty(TBoxChosenURL, " Chosen Url") && Validator.checkUrl(TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString(), TBoxName.Text))
             {
                 if (CombBoxSelectAnExistingCategory.SelectedItem == null)
                 {
@@ -137,6 +137,7 @@ namespace WindowsFormsApp1
                     TBoxName.Clear();
                     TBoxChosenURL.Clear();
                     LBoxCategory.Items.Clear();
+                    CombBoxSelectAnExistingCategory.ResetText();
                     CombBoxSelectAnExistingCategory.Items.Clear();
                     fillCategories();
                     MessageBox.Show("Podcast added");

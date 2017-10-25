@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,5 +59,28 @@ namespace WindowsFormsApp1
                 return true;
             }
         }
+
+        public static bool checkUrl(string Url, string category, string name)
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    string path = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".xml";
+                    client.DownloadFile(Url, path);
+                    client.Dispose();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter a correct url.");
+                return false;
+            }
+
+
+        }
+
     }
+
 }
