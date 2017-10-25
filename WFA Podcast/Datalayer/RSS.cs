@@ -11,12 +11,13 @@ namespace Datalayer
 {
 
 
-    public class RSS
+    public class RSS : XmlAbstract
     {
 
 
 
-        public void readrss(string Url, string name, string category)
+
+        public override void writeToXml(string Url, string name, string category)
         {
             using (var client = new WebClient())
             {
@@ -24,7 +25,11 @@ namespace Datalayer
                 client.DownloadFile(Url, path);
                 client.Dispose();
             }
+
         }
+
+
+
 
 
     }

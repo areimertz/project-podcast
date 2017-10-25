@@ -35,7 +35,7 @@ namespace Logic
             this.name = name;
             this.url = url;
             this.category = category;
-            rssreader.readrss(Url, name, category);
+            rssreader.writeToXml(Url, name, category);
             
         }
 

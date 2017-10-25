@@ -9,11 +9,11 @@ namespace Datalayer
 {
     public abstract class XmlAbstract
     {
-        public abstract XmlDocument PodDocument(string urlPod);
+      
 
         public virtual void writeToXml(string Url, string category, string name)
         {
-            Console.WriteLine(Url + "" + category + "" + name);
+            return;
         }
 
     }
