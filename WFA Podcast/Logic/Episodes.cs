@@ -52,13 +52,13 @@ namespace Logic
          
         }
 
-        public void getDescription(string name, ListBox lbDescription)
+        public void getDescription(string name, RichTextBox lbDescription)
         {
             var descrip = from x in episodes
                           where x.Title == name
                           select x.Description;
 
-            lbDescription.Items.Add(descrip.Single().ToString());
+            lbDescription.AppendText(descrip.Single().ToString());
  
         }
         public string GetPlayablePod(string name)

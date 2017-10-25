@@ -52,8 +52,6 @@
             this.BtnPlayPodcast = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.LblEpisodeDescription = new System.Windows.Forms.Label();
-            this.LBoxPodcastDescription = new System.Windows.Forms.ListBox();
-            this.LBoxEpisodeDescription = new System.Windows.Forms.ListBox();
             this.cblEpisode = new System.Windows.Forms.CheckedListBox();
             this.lChoosePodCat = new System.Windows.Forms.Label();
             this.cbChoosePodCat = new System.Windows.Forms.ComboBox();
@@ -68,6 +66,8 @@
             this.cbChoosePocastIV = new System.Windows.Forms.ComboBox();
             this.cbChooseIV = new System.Windows.Forms.ComboBox();
             this.btnChangeIV = new System.Windows.Forms.Button();
+            this.richTbDesc = new System.Windows.Forms.RichTextBox();
+            this.rTbEpisode = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // LBoxCategory
@@ -304,28 +304,6 @@
             this.LblEpisodeDescription.TabIndex = 30;
             this.LblEpisodeDescription.Text = "Episode Description";
             // 
-            // LBoxPodcastDescription
-            // 
-            this.LBoxPodcastDescription.FormattingEnabled = true;
-            this.LBoxPodcastDescription.ItemHeight = 20;
-            this.LBoxPodcastDescription.Location = new System.Drawing.Point(12, 326);
-            this.LBoxPodcastDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LBoxPodcastDescription.Name = "LBoxPodcastDescription";
-            this.LBoxPodcastDescription.Size = new System.Drawing.Size(350, 164);
-            this.LBoxPodcastDescription.TabIndex = 26;
-            this.LBoxPodcastDescription.SelectedIndexChanged += new System.EventHandler(this.LBoxPodcastDescription_SelectedIndexChanged);
-            // 
-            // LBoxEpisodeDescription
-            // 
-            this.LBoxEpisodeDescription.FormattingEnabled = true;
-            this.LBoxEpisodeDescription.ItemHeight = 20;
-            this.LBoxEpisodeDescription.Location = new System.Drawing.Point(387, 326);
-            this.LBoxEpisodeDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LBoxEpisodeDescription.Name = "LBoxEpisodeDescription";
-            this.LBoxEpisodeDescription.Size = new System.Drawing.Size(350, 164);
-            this.LBoxEpisodeDescription.TabIndex = 27;
-            this.LBoxEpisodeDescription.SelectedIndexChanged += new System.EventHandler(this.LBoxEpisodeDescription_SelectedIndexChanged);
-            // 
             // cblEpisode
             // 
             this.cblEpisode.FormattingEnabled = true;
@@ -456,11 +434,29 @@
             this.btnChangeIV.Text = "Change Intervall";
             this.btnChangeIV.UseVisualStyleBackColor = true;
             // 
+            // richTbDesc
+            // 
+            this.richTbDesc.Location = new System.Drawing.Point(12, 326);
+            this.richTbDesc.Name = "richTbDesc";
+            this.richTbDesc.Size = new System.Drawing.Size(342, 165);
+            this.richTbDesc.TabIndex = 46;
+            this.richTbDesc.Text = "";
+            // 
+            // rTbEpisode
+            // 
+            this.rTbEpisode.Location = new System.Drawing.Point(373, 326);
+            this.rTbEpisode.Name = "rTbEpisode";
+            this.rTbEpisode.Size = new System.Drawing.Size(367, 165);
+            this.rTbEpisode.TabIndex = 47;
+            this.rTbEpisode.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1475, 658);
+            this.Controls.Add(this.rTbEpisode);
+            this.Controls.Add(this.richTbDesc);
             this.Controls.Add(this.btnChangeIV);
             this.Controls.Add(this.cbChooseIV);
             this.Controls.Add(this.cbChoosePocastIV);
@@ -478,8 +474,6 @@
             this.Controls.Add(this.LblEpisodeDescription);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnPlayPodcast);
-            this.Controls.Add(this.LBoxEpisodeDescription);
-            this.Controls.Add(this.LBoxPodcastDescription);
             this.Controls.Add(this.BtnChangeCategory);
             this.Controls.Add(this.BtnRemoveCategory);
             this.Controls.Add(this.btnChangeName);
@@ -536,8 +530,6 @@
         private System.Windows.Forms.Button BtnPlayPodcast;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblEpisodeDescription;
-        private System.Windows.Forms.ListBox LBoxPodcastDescription;
-        private System.Windows.Forms.ListBox LBoxEpisodeDescription;
         private System.Windows.Forms.CheckedListBox cblEpisode;
         private System.Windows.Forms.Label lChoosePodCat;
         private System.Windows.Forms.ComboBox cbChoosePodCat;
@@ -552,6 +544,8 @@
         private System.Windows.Forms.ComboBox cbChoosePocastIV;
         private System.Windows.Forms.ComboBox cbChooseIV;
         private System.Windows.Forms.Button btnChangeIV;
+        private System.Windows.Forms.RichTextBox richTbDesc;
+        private System.Windows.Forms.RichTextBox rTbEpisode;
     }
 }
 

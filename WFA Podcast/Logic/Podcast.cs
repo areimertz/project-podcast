@@ -39,7 +39,7 @@ namespace Logic
             
         }
 
-        public void getPodDescription(string category, string name, ListBox lbox)
+        public void getPodDescription(string category, string name, RichTextBox lbox)
         {
             var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
 
@@ -48,7 +48,7 @@ namespace Logic
             xml.Close();
 
             var description = feed.Description.Text;
-            lbox.Items.Add(description);
+            lbox.AppendText(description);
 
           
 

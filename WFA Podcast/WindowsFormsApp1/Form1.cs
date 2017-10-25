@@ -114,7 +114,7 @@ namespace WindowsFormsApp1
             var category = LBoxCategory.SelectedItem.ToString();
             var path = LBoxPodcast.SelectedItem.ToString();
             episode.getEpisodes(category, path, cblEpisode);
-            podcast.getPodDescription(category, path, LBoxPodcastDescription);
+            podcast.getPodDescription(category, path, richTbDesc);
 
 
         }
@@ -214,9 +214,9 @@ namespace WindowsFormsApp1
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LBoxEpisodeDescription.Items.Clear();
+            rTbEpisode.Clear();
             var epi = cblEpisode.SelectedItem.ToString();
-            episode.getDescription(epi, LBoxEpisodeDescription);
+            episode.getDescription(epi, rTbEpisode);
            
         }
 
