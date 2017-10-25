@@ -44,7 +44,37 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Validator.textFieldNotEmpty(tbNewCategory, " new category name"))
+            {
+                if (cbChooseCategory.SelectedItem == null)
+                {
+                    MessageBox.Show("Please choose a category to rename.");
+                    return;
+                }
+                else
+                {
+                    var confirmResult = MessageBox.Show("Are you sure you want to rename this category?",
+                                        "Confirm Delete.",
+                                        MessageBoxButtons.YesNo);
 
+                    {
+                        if (confirmResult == DialogResult.Yes)
+                        {
+                            category.changeCategoryName(cbChooseCategory.Text, tbNewCategory.Text);
+                            MessageBox.Show("Category has been changed to " + tbNewCategory.Text + ".");
+                            cblEpisode.Items.Clear();
+                            LBoxPodcast.Items.Clear();
+                            LBoxCategory.Items.Clear();
+                            cbChooseCategory.ResetText();
+                            tbNewCategory.ResetText();
+                            cbChooseCategory.Items.Clear();
+                            tbNewCategory.Clear();
+
+                            fillCategories();
+                        }
+                    }
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -127,6 +157,7 @@ namespace WindowsFormsApp1
                     string fixadCat = trimmadCat[langd];
                     LBoxCategory.Items.Add(fixadCat);
                     cbnewCategory.Items.Add(fixadCat);
+                    cbChooseCategory.Items.Add(fixadCat);
                     CombBoxSelectAnExistingCategory.Items.Add(fixadCat);
                 }
             }
@@ -169,7 +200,7 @@ namespace WindowsFormsApp1
 
                         var chosenCategory = LBoxCategory.SelectedItem.ToString();
 
-                        category.RemoveCategory(chosenCategory);
+                        category.remove(chosenCategory);
 
                         LBoxCategory.Items.Clear();
                         LBoxPodcast.Items.Clear();
@@ -208,7 +239,7 @@ namespace WindowsFormsApp1
                 {
                     if (confirmResult == DialogResult.Yes)
                     {
-                        category.removeFile(LBoxCategory.Text, LBoxPodcast.Text);
+                        category.remove(LBoxCategory.Text, LBoxPodcast.Text);
                         cblEpisode.Items.Clear();
                         LBoxPodcast.Items.Clear();
                         LBoxCategory.Items.Clear();

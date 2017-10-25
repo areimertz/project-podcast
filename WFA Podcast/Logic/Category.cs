@@ -34,7 +34,7 @@ namespace Logic
             return allaNamn;
         }
 
-       public void RemoveCategory(string category)
+       public void remove(string category)
         {
             var path = Directory.GetCurrentDirectory() + @"\categories\" + category;
 
@@ -43,7 +43,7 @@ namespace Logic
 
         }
 
-        public void removeFile(string category, string name)
+        public void remove(string category, string name)
         {
             string path = Directory.GetCurrentDirectory() + @"\categories\" + category + @"\" + name;
 
@@ -58,6 +58,12 @@ namespace Logic
             File.Move(path1, path2);
         }
 
+        public void changeCategoryName(string category, string name)
+        {
+            string path1 = Directory.GetCurrentDirectory() + @"\categories\" + category;
+            string path2 = Directory.GetCurrentDirectory() + @"\categories\"  + name;
 
+            Directory.Move(path1, path2);
+        }
     }
 }

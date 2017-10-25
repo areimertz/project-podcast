@@ -45,7 +45,7 @@
             this.CombBoxSelectYourUpdateInterval = new System.Windows.Forms.ComboBox();
             this.BtnRemovePodcast = new System.Windows.Forms.Button();
             this.BtnAddPodcast = new System.Windows.Forms.Button();
-            this.btnChangePodcast = new System.Windows.Forms.Button();
+            this.btnChangeName = new System.Windows.Forms.Button();
             this.BtnAddCategory = new System.Windows.Forms.Button();
             this.BtnChangeCategory = new System.Windows.Forms.Button();
             this.BtnRemoveCategory = new System.Windows.Forms.Button();
@@ -58,10 +58,10 @@
             this.lChoosePodCat = new System.Windows.Forms.Label();
             this.cbChoosePodCat = new System.Windows.Forms.ComboBox();
             this.lChoosenewCat = new System.Windows.Forms.Label();
-            this.LchoosePodcast = new System.Windows.Forms.Label();
-            this.LChangePodcast = new System.Windows.Forms.Label();
-            this.cbChoosePodcast = new System.Windows.Forms.ComboBox();
-            this.tbNewIntervall = new System.Windows.Forms.TextBox();
+            this.LchooseCategory = new System.Windows.Forms.Label();
+            this.LChangeCategory = new System.Windows.Forms.Label();
+            this.cbChooseCategory = new System.Windows.Forms.ComboBox();
+            this.tbNewCategory = new System.Windows.Forms.TextBox();
             this.cbnewCategory = new System.Windows.Forms.ComboBox();
             this.lChoosePodcastIV = new System.Windows.Forms.Label();
             this.lChooseIV = new System.Windows.Forms.Label();
@@ -231,16 +231,16 @@
             this.BtnAddPodcast.UseVisualStyleBackColor = true;
             this.BtnAddPodcast.Click += new System.EventHandler(this.BtnAddPodcast_Click);
             // 
-            // btnChangePodcast
+            // btnChangeName
             // 
-            this.btnChangePodcast.Location = new System.Drawing.Point(1252, 175);
-            this.btnChangePodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnChangePodcast.Name = "btnChangePodcast";
-            this.btnChangePodcast.Size = new System.Drawing.Size(138, 51);
-            this.btnChangePodcast.TabIndex = 21;
-            this.btnChangePodcast.Text = "Change Podcast";
-            this.btnChangePodcast.UseVisualStyleBackColor = true;
-            this.btnChangePodcast.Click += new System.EventHandler(this.button1_Click);
+            this.btnChangeName.Location = new System.Drawing.Point(1252, 175);
+            this.btnChangeName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChangeName.Name = "btnChangeName";
+            this.btnChangeName.Size = new System.Drawing.Size(138, 51);
+            this.btnChangeName.TabIndex = 21;
+            this.btnChangeName.Text = "Change Category";
+            this.btnChangeName.UseVisualStyleBackColor = true;
+            this.btnChangeName.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnAddCategory
             // 
@@ -260,7 +260,7 @@
             this.BtnChangeCategory.Name = "BtnChangeCategory";
             this.BtnChangeCategory.Size = new System.Drawing.Size(183, 51);
             this.BtnChangeCategory.TabIndex = 23;
-            this.BtnChangeCategory.Text = "Change Category";
+            this.BtnChangeCategory.Text = "Change Location";
             this.BtnChangeCategory.UseVisualStyleBackColor = true;
             this.BtnChangeCategory.Click += new System.EventHandler(this.BtnChangeCategory_Click);
             // 
@@ -365,40 +365,40 @@
             this.lChoosenewCat.Text = "Choose new Category";
             this.lChoosenewCat.Click += new System.EventHandler(this.label3_Click);
             // 
-            // LchoosePodcast
+            // LchooseCategory
             // 
-            this.LchoosePodcast.AutoSize = true;
-            this.LchoosePodcast.Location = new System.Drawing.Point(1249, 16);
-            this.LchoosePodcast.Name = "LchoosePodcast";
-            this.LchoosePodcast.Size = new System.Drawing.Size(126, 20);
-            this.LchoosePodcast.TabIndex = 36;
-            this.LchoosePodcast.Text = "Choose Podcast";
+            this.LchooseCategory.AutoSize = true;
+            this.LchooseCategory.Location = new System.Drawing.Point(1249, 16);
+            this.LchooseCategory.Name = "LchooseCategory";
+            this.LchooseCategory.Size = new System.Drawing.Size(132, 20);
+            this.LchooseCategory.TabIndex = 36;
+            this.LchooseCategory.Text = "Choose Category";
             // 
-            // LChangePodcast
+            // LChangeCategory
             // 
-            this.LChangePodcast.AutoSize = true;
-            this.LChangePodcast.Location = new System.Drawing.Point(1249, 84);
-            this.LChangePodcast.Name = "LChangePodcast";
-            this.LChangePodcast.Size = new System.Drawing.Size(126, 20);
-            this.LChangePodcast.TabIndex = 37;
-            this.LChangePodcast.Text = "New Url Podcast";
+            this.LChangeCategory.AutoSize = true;
+            this.LChangeCategory.Location = new System.Drawing.Point(1249, 84);
+            this.LChangeCategory.Name = "LChangeCategory";
+            this.LChangeCategory.Size = new System.Drawing.Size(154, 20);
+            this.LChangeCategory.TabIndex = 37;
+            this.LChangeCategory.Text = "New Category Name";
             // 
-            // cbChoosePodcast
+            // cbChooseCategory
             // 
-            this.cbChoosePodcast.FormattingEnabled = true;
-            this.cbChoosePodcast.Location = new System.Drawing.Point(1252, 36);
-            this.cbChoosePodcast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbChoosePodcast.Name = "cbChoosePodcast";
-            this.cbChoosePodcast.Size = new System.Drawing.Size(181, 28);
-            this.cbChoosePodcast.TabIndex = 38;
+            this.cbChooseCategory.FormattingEnabled = true;
+            this.cbChooseCategory.Location = new System.Drawing.Point(1252, 36);
+            this.cbChooseCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbChooseCategory.Name = "cbChooseCategory";
+            this.cbChooseCategory.Size = new System.Drawing.Size(181, 28);
+            this.cbChooseCategory.TabIndex = 38;
             // 
-            // tbNewIntervall
+            // tbNewCategory
             // 
-            this.tbNewIntervall.Location = new System.Drawing.Point(1252, 109);
-            this.tbNewIntervall.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbNewIntervall.Name = "tbNewIntervall";
-            this.tbNewIntervall.Size = new System.Drawing.Size(181, 26);
-            this.tbNewIntervall.TabIndex = 39;
+            this.tbNewCategory.Location = new System.Drawing.Point(1252, 109);
+            this.tbNewCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbNewCategory.Name = "tbNewCategory";
+            this.tbNewCategory.Size = new System.Drawing.Size(181, 26);
+            this.tbNewCategory.TabIndex = 39;
             // 
             // cbnewCategory
             // 
@@ -467,10 +467,10 @@
             this.Controls.Add(this.lChooseIV);
             this.Controls.Add(this.lChoosePodcastIV);
             this.Controls.Add(this.cbnewCategory);
-            this.Controls.Add(this.tbNewIntervall);
-            this.Controls.Add(this.cbChoosePodcast);
-            this.Controls.Add(this.LChangePodcast);
-            this.Controls.Add(this.LchoosePodcast);
+            this.Controls.Add(this.tbNewCategory);
+            this.Controls.Add(this.cbChooseCategory);
+            this.Controls.Add(this.LChangeCategory);
+            this.Controls.Add(this.LchooseCategory);
             this.Controls.Add(this.lChoosenewCat);
             this.Controls.Add(this.cbChoosePodCat);
             this.Controls.Add(this.lChoosePodCat);
@@ -482,7 +482,7 @@
             this.Controls.Add(this.LBoxPodcastDescription);
             this.Controls.Add(this.BtnChangeCategory);
             this.Controls.Add(this.BtnRemoveCategory);
-            this.Controls.Add(this.btnChangePodcast);
+            this.Controls.Add(this.btnChangeName);
             this.Controls.Add(this.BtnAddCategory);
             this.Controls.Add(this.BtnAddPodcast);
             this.Controls.Add(this.BtnRemovePodcast);
@@ -529,7 +529,7 @@
         private System.Windows.Forms.ComboBox CombBoxSelectYourUpdateInterval;
         private System.Windows.Forms.Button BtnRemovePodcast;
         private System.Windows.Forms.Button BtnAddPodcast;
-        private System.Windows.Forms.Button btnChangePodcast;
+        private System.Windows.Forms.Button btnChangeName;
         private System.Windows.Forms.Button BtnAddCategory;
         private System.Windows.Forms.Button BtnChangeCategory;
         private System.Windows.Forms.Button BtnRemoveCategory;
@@ -542,10 +542,10 @@
         private System.Windows.Forms.Label lChoosePodCat;
         private System.Windows.Forms.ComboBox cbChoosePodCat;
         private System.Windows.Forms.Label lChoosenewCat;
-        private System.Windows.Forms.Label LchoosePodcast;
-        private System.Windows.Forms.Label LChangePodcast;
-        private System.Windows.Forms.ComboBox cbChoosePodcast;
-        private System.Windows.Forms.TextBox tbNewIntervall;
+        private System.Windows.Forms.Label LchooseCategory;
+        private System.Windows.Forms.Label LChangeCategory;
+        private System.Windows.Forms.ComboBox cbChooseCategory;
+        private System.Windows.Forms.TextBox tbNewCategory;
         private System.Windows.Forms.ComboBox cbnewCategory;
         private System.Windows.Forms.Label lChoosePodcastIV;
         private System.Windows.Forms.Label lChooseIV;
