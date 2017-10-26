@@ -24,6 +24,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             fillCategories();
+            category.CategoryfillListBox(LBoxCategory, lblloading);
+
             
         }
 
