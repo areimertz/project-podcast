@@ -61,14 +61,13 @@
             this.cbChooseCategory = new System.Windows.Forms.ComboBox();
             this.tbNewCategory = new System.Windows.Forms.TextBox();
             this.cbnewCategory = new System.Windows.Forms.ComboBox();
-            this.lChoosePodcastIV = new System.Windows.Forms.Label();
             this.lChooseIV = new System.Windows.Forms.Label();
-            this.cbChoosePocastIV = new System.Windows.Forms.ComboBox();
             this.cbChooseIV = new System.Windows.Forms.ComboBox();
-            this.btnChangeIV = new System.Windows.Forms.Button();
             this.richTbDesc = new System.Windows.Forms.RichTextBox();
             this.rTbEpisode = new System.Windows.Forms.RichTextBox();
             this.lblloading = new System.Windows.Forms.Label();
+            this.tbNewUrl = new System.Windows.Forms.TextBox();
+            this.lNewUrl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LBoxCategory
@@ -256,12 +255,12 @@
             // 
             // BtnChangeCategory
             // 
-            this.BtnChangeCategory.Location = new System.Drawing.Point(887, 261);
+            this.BtnChangeCategory.Location = new System.Drawing.Point(885, 407);
             this.BtnChangeCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnChangeCategory.Name = "BtnChangeCategory";
             this.BtnChangeCategory.Size = new System.Drawing.Size(163, 41);
             this.BtnChangeCategory.TabIndex = 23;
-            this.BtnChangeCategory.Text = "Change Location";
+            this.BtnChangeCategory.Text = "Change Feed";
             this.BtnChangeCategory.UseVisualStyleBackColor = true;
             this.BtnChangeCategory.Click += new System.EventHandler(this.BtnChangeCategory_Click);
             // 
@@ -370,7 +369,7 @@
             // 
             // tbNewCategory
             // 
-            this.tbNewCategory.Location = new System.Drawing.Point(1113, 87);
+            this.tbNewCategory.Location = new System.Drawing.Point(1113, 103);
             this.tbNewCategory.Name = "tbNewCategory";
             this.tbNewCategory.Size = new System.Drawing.Size(161, 22);
             this.tbNewCategory.TabIndex = 39;
@@ -383,49 +382,22 @@
             this.cbnewCategory.Size = new System.Drawing.Size(173, 24);
             this.cbnewCategory.TabIndex = 40;
             // 
-            // lChoosePodcastIV
-            // 
-            this.lChoosePodcastIV.AutoSize = true;
-            this.lChoosePodcastIV.Location = new System.Drawing.Point(1110, 223);
-            this.lChoosePodcastIV.Name = "lChoosePodcastIV";
-            this.lChoosePodcastIV.Size = new System.Drawing.Size(111, 17);
-            this.lChoosePodcastIV.TabIndex = 41;
-            this.lChoosePodcastIV.Text = "Choose Podcast";
-            // 
             // lChooseIV
             // 
             this.lChooseIV.AutoSize = true;
-            this.lChooseIV.Location = new System.Drawing.Point(1110, 283);
+            this.lChooseIV.Location = new System.Drawing.Point(887, 328);
             this.lChooseIV.Name = "lChooseIV";
             this.lChooseIV.Size = new System.Drawing.Size(138, 17);
             this.lChooseIV.TabIndex = 42;
             this.lChooseIV.Text = "Choose new Intervall";
             // 
-            // cbChoosePocastIV
-            // 
-            this.cbChoosePocastIV.FormattingEnabled = true;
-            this.cbChoosePocastIV.Location = new System.Drawing.Point(1113, 247);
-            this.cbChoosePocastIV.Name = "cbChoosePocastIV";
-            this.cbChoosePocastIV.Size = new System.Drawing.Size(161, 24);
-            this.cbChoosePocastIV.TabIndex = 43;
-            this.cbChoosePocastIV.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
-            // 
             // cbChooseIV
             // 
             this.cbChooseIV.FormattingEnabled = true;
-            this.cbChooseIV.Location = new System.Drawing.Point(1113, 303);
+            this.cbChooseIV.Location = new System.Drawing.Point(887, 357);
             this.cbChooseIV.Name = "cbChooseIV";
-            this.cbChooseIV.Size = new System.Drawing.Size(161, 24);
+            this.cbChooseIV.Size = new System.Drawing.Size(174, 24);
             this.cbChooseIV.TabIndex = 44;
-            // 
-            // btnChangeIV
-            // 
-            this.btnChangeIV.Location = new System.Drawing.Point(1113, 344);
-            this.btnChangeIV.Name = "btnChangeIV";
-            this.btnChangeIV.Size = new System.Drawing.Size(135, 41);
-            this.btnChangeIV.TabIndex = 45;
-            this.btnChangeIV.Text = "Change Intervall";
-            this.btnChangeIV.UseVisualStyleBackColor = true;
             // 
             // richTbDesc
             // 
@@ -453,19 +425,34 @@
             this.lblloading.Size = new System.Drawing.Size(0, 17);
             this.lblloading.TabIndex = 48;
             // 
+            // tbNewUrl
+            // 
+            this.tbNewUrl.Location = new System.Drawing.Point(888, 294);
+            this.tbNewUrl.Name = "tbNewUrl";
+            this.tbNewUrl.Size = new System.Drawing.Size(173, 22);
+            this.tbNewUrl.TabIndex = 49;
+            // 
+            // lNewUrl
+            // 
+            this.lNewUrl.AutoSize = true;
+            this.lNewUrl.Location = new System.Drawing.Point(893, 259);
+            this.lNewUrl.Name = "lNewUrl";
+            this.lNewUrl.Size = new System.Drawing.Size(57, 17);
+            this.lNewUrl.TabIndex = 50;
+            this.lNewUrl.Text = "New Url";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1311, 526);
+            this.Controls.Add(this.lNewUrl);
+            this.Controls.Add(this.tbNewUrl);
             this.Controls.Add(this.lblloading);
             this.Controls.Add(this.rTbEpisode);
             this.Controls.Add(this.richTbDesc);
-            this.Controls.Add(this.btnChangeIV);
             this.Controls.Add(this.cbChooseIV);
-            this.Controls.Add(this.cbChoosePocastIV);
             this.Controls.Add(this.lChooseIV);
-            this.Controls.Add(this.lChoosePodcastIV);
             this.Controls.Add(this.cbnewCategory);
             this.Controls.Add(this.tbNewCategory);
             this.Controls.Add(this.cbChooseCategory);
@@ -543,14 +530,13 @@
         private System.Windows.Forms.ComboBox cbChooseCategory;
         private System.Windows.Forms.TextBox tbNewCategory;
         private System.Windows.Forms.ComboBox cbnewCategory;
-        private System.Windows.Forms.Label lChoosePodcastIV;
         private System.Windows.Forms.Label lChooseIV;
-        private System.Windows.Forms.ComboBox cbChoosePocastIV;
         private System.Windows.Forms.ComboBox cbChooseIV;
-        private System.Windows.Forms.Button btnChangeIV;
         private System.Windows.Forms.RichTextBox richTbDesc;
         private System.Windows.Forms.RichTextBox rTbEpisode;
         private System.Windows.Forms.Label lblloading;
+        private System.Windows.Forms.TextBox tbNewUrl;
+        private System.Windows.Forms.Label lNewUrl;
     }
 }
 

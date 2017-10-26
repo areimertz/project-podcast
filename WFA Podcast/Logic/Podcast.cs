@@ -53,5 +53,10 @@ namespace Logic
           
 
         }
+
+        public void intervalSet() {
+
+
+        }
     }
 }
