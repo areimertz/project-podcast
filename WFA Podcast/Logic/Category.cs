@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Datalayer;
 using System.IO;
 using System.Windows.Forms;
+using System.Threading;
 
 
 
@@ -43,6 +44,8 @@ namespace Logic
             foreach (var name in ListOfCategories)
             {
                 allaNamn.Add(name.ToString());
+                Thread.Sleep(5000);
+                
             }
             return allaNamn;
         }
