@@ -274,7 +274,7 @@ namespace WindowsFormsApp1
         private void BtnChangeCategory_Click(object sender, EventArgs e)
         {
 
-            if (Validator.comboBoxMovePodcast(cbnewCategory, LBoxCategory))
+            if (Validator.comboBoxMovePodcast(cbnewCategory, LBoxCategory) && Validator.checkUrl(tbNewUrl.Text, cbnewCategory.SelectedItem.ToString(), tbPodcastChange.Text) && Validator.textFieldNotEmpty(tbPodcastChange, " podcast name"))
             {
                 if (cbnewCategory.SelectedItem == null)
                 {
@@ -345,6 +345,11 @@ namespace WindowsFormsApp1
             rTbEpisode.Clear();
             var epi = LBoxEpisode.SelectedItem.ToString();
             episode.getDescription(epi, rTbEpisode);
+        }
+
+        private void cbnewCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -370,6 +370,7 @@
             this.cbnewCategory.Name = "cbnewCategory";
             this.cbnewCategory.Size = new System.Drawing.Size(194, 28);
             this.cbnewCategory.TabIndex = 40;
+            this.cbnewCategory.SelectedIndexChanged += new System.EventHandler(this.cbnewCategory_SelectedIndexChanged);
             // 
             // lChooseIV
             // 
