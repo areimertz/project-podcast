@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
                         {
                             category.changeCategoryName(cbChooseCategory.Text, tbNewCategory.Text);
                             MessageBox.Show("Category has been changed to " + tbNewCategory.Text + ".");
-                            cblEpisode.Items.Clear();
+                            LBoxEpisode.Items.Clear();
                             LBoxPodcast.Items.Clear();
                             LBoxCategory.Items.Clear();
                             cbChooseCategory.ResetText();
@@ -104,7 +104,7 @@ namespace WindowsFormsApp1
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-
+            LBoxEpisode.Items.Clear();
             LBoxPodcast.Items.Clear();
             fillpodcasts(LBoxCategory.SelectedItem.ToString());
 
@@ -113,11 +113,12 @@ namespace WindowsFormsApp1
 
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cblEpisode.Items.Clear();
+           
             richTbDesc.Clear();
             var category = LBoxCategory.SelectedItem.ToString();
             var path = LBoxPodcast.SelectedItem.ToString();
-            episode.getEpisodes(category, path, cblEpisode);
+            LBoxEpisode.Items.Clear();
+            episode.getEpisodes(category, path, LBoxEpisode);
             podcast.getPodDescription(category, path, richTbDesc);
 
 
@@ -209,7 +210,7 @@ namespace WindowsFormsApp1
 
                         LBoxCategory.Items.Clear();
                         LBoxPodcast.Items.Clear();
-                        cblEpisode.Items.Clear();
+                        LBoxEpisode.Items.Clear();
                         fillCategories();
                     }
                 }
@@ -219,7 +220,7 @@ namespace WindowsFormsApp1
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             rTbEpisode.Clear();
-            var epi = cblEpisode.SelectedItem.ToString();
+            var epi = LBoxEpisode.SelectedItem.ToString();
             episode.getDescription(epi, rTbEpisode);
 
         }
@@ -245,7 +246,7 @@ namespace WindowsFormsApp1
                     if (confirmResult == DialogResult.Yes)
                     {
                         category.remove(LBoxCategory.Text, LBoxPodcast.Text);
-                        cblEpisode.Items.Clear();
+                        LBoxEpisode.Items.Clear();
                         LBoxPodcast.Items.Clear();
                         LBoxCategory.Items.Clear();
                         fillCategories();
@@ -294,7 +295,7 @@ namespace WindowsFormsApp1
                             var cat = cbnewCategory.SelectedItem.ToString();
                             podcast.podcastinfo(url, cat, podName);
                             MessageBox.Show("Podcast has been moved to " + cbnewCategory.SelectedItem.ToString() + ".");
-                            cblEpisode.Items.Clear();
+                            LBoxEpisode.Items.Clear();
                             LBoxPodcast.Items.Clear();
                             LBoxCategory.Items.Clear();
                             cbnewCategory.ResetText();
@@ -312,9 +313,13 @@ namespace WindowsFormsApp1
 
         private void BtnPlayPodcast_Click(object sender, EventArgs e)
         {
-            var selected = cblEpisode.SelectedItem.ToString();
+            var selected = LBoxEpisode.SelectedItem.ToString();
             var url = episode.GetPlayablePod(selected);
-            Process.Start(url);
+            
+                Process.Start(url);
+            var picked = PlayedPod.Items.Add(selected);
+
+
         }
 
         private void TBoxChosenURL_TextChanged(object sender, EventArgs e)
@@ -334,6 +339,12 @@ namespace WindowsFormsApp1
                 MessageUpdate();
             },null, StartTimeSpan, periodTimespan);
         }
-
+        
+        private void LBoxEpisode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rTbEpisode.Clear();
+            var epi = LBoxEpisode.SelectedItem.ToString();
+            episode.getDescription(epi, rTbEpisode);
+        }
     }
 }

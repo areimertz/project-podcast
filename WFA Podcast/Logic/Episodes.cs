@@ -17,7 +17,7 @@ namespace Logic
     {
             List<Episode> episodes = new List<Episode>();
 
-        public void getEpisodes(string category, string name, CheckedListBox cbox)
+        public void getEpisodes(string category, string name, ListBox cbox)
         {
             var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
 
@@ -47,7 +47,7 @@ namespace Logic
             }
             foreach (var item in episodes)
             {
-                cbox.Items.Add(item, false);
+                cbox.Items.Add(item);
             }
          
         }
@@ -70,5 +70,5 @@ namespace Logic
                               
             return Url.Single().ToString();
         }
-        }
+    }
 }
