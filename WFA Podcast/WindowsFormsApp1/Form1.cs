@@ -114,6 +114,7 @@ namespace WindowsFormsApp1
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
         {
             cblEpisode.Items.Clear();
+            richTbDesc.Clear();
             var category = LBoxCategory.SelectedItem.ToString();
             var path = LBoxPodcast.SelectedItem.ToString();
             episode.getEpisodes(category, path, cblEpisode);
@@ -181,7 +182,7 @@ namespace WindowsFormsApp1
                     string[] trimmadpod = pod.Split('\\');
                     int langd = trimmadpod.Length - 1;
                     string fixadpod = trimmadpod[langd];
-                    cbChoosePodCat.Items.Add(fixadpod);
+                    
                     LBoxPodcast.Items.Add(fixadpod);
 
                 }
@@ -274,28 +275,32 @@ namespace WindowsFormsApp1
 
             if (Validator.comboBoxMovePodcast(cbnewCategory, LBoxCategory))
             {
-                if (cbChoosePodCat.SelectedItem == null)
+                if (cbnewCategory.SelectedItem == null)
                 {
-                    MessageBox.Show("Please choose a podcast to move.");
+                    MessageBox.Show("Please choose a Category to move.");
                     return;
                 }
                 else {
-                    var confirmResult = MessageBox.Show("Are you sure you want to move this podcast?",
+                    var confirmResult = MessageBox.Show("Are you sure you want to change this Feed?",
                                         "Confirm Delete.",
                                         MessageBoxButtons.YesNo);
 
                     {
                         if (confirmResult == DialogResult.Yes)
                         {
-                            category.changeCategory(cbnewCategory.Text, cbChoosePodCat.Text, LBoxCategory.Text);
+                            category.remove(LBoxCategory.Text, LBoxPodcast.Text);
+                            var podName = tbPodcastChange.Text;
+                            var url = tbNewUrl.Text;
+                            var cat = cbnewCategory.SelectedItem.ToString();
+                            podcast.podcastinfo(url, cat, podName);
                             MessageBox.Show("Podcast has been moved to " + cbnewCategory.SelectedItem.ToString() + ".");
                             cblEpisode.Items.Clear();
                             LBoxPodcast.Items.Clear();
                             LBoxCategory.Items.Clear();
                             cbnewCategory.ResetText();
-                            cbChoosePodCat.ResetText();
+                            
                             cbnewCategory.Items.Clear();
-                            cbChoosePodCat.Items.Clear();
+                           
 
                             fillCategories();
                         }
@@ -316,14 +321,14 @@ namespace WindowsFormsApp1
         {
 
         }
-        public void MessageUpdate()
+         internal void MessageUpdate()
         {
             MessageBox.Show("To update your episodes, relaunch the program!");
         }
         public void TimerForMassage()
         {
             var StartTimeSpan = TimeSpan.Zero;
-            var periodTimespan = TimeSpan.FromSeconds(15);
+            var periodTimespan = TimeSpan.FromSeconds(1500);
             var timer = new System.Threading.Timer((e) =>
             {
                 MessageUpdate();
