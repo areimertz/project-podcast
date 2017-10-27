@@ -32,31 +32,40 @@ namespace Logic
                 return name;
             }
         public void podcastinfo(string Url, string category, string name, int intervall) {
-            RSS rssreader = new RSS();
-            this.name = name;
-            this.url = url;
-            this.category = category;
-            this.intervall = intervall;
-            rssreader.writeToXml(Url, name, category, intervall);
-            
+            try
+            {
+                RSS rssreader = new RSS();
+                this.name = name;
+                this.url = url;
+                this.category = category;
+                this.intervall = intervall;
+                rssreader.writeToXml(Url, name, category, intervall);
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
         }
 
         public void getPodDescription(string category, string name, RichTextBox lbox)
         {
-            var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
+            try
+            {
+                var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
 
-            var xml = XmlReader.Create(paths);
-            var feed = SyndicationFeed.Load(xml);
-            xml.Close();
+                var xml = XmlReader.Create(paths);
+                var feed = SyndicationFeed.Load(xml);
+                xml.Close();
 
-            var description = feed.Description.Text;
-            lbox.AppendText(description);
+                var description = feed.Description.Text;
+                lbox.AppendText(description);
 
-          
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
 
         }
-      
-
-
     }
 }

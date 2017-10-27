@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
 
         public static bool textFieldNotEmpty(TextBox empty, string label)
         {
+            
             if (empty.Text == "")
             {
                 MessageBox.Show("Please insert value to" + label);

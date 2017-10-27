@@ -22,82 +22,98 @@ namespace Logic
 
         public void getEpisodes(string category, string name, ListBox cbox)
         {
-            var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
-
-            var xml = XmlReader.Create(paths);
-            var feed = SyndicationFeed.Load(xml);
-            xml.Close();
-
-
-
-            foreach (var episode in feed.Items)
+            try
             {
-                var pod = new Episode()
+                var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
+
+                var xml = XmlReader.Create(paths);
+                var feed = SyndicationFeed.Load(xml);
+                xml.Close();
+
+
+
+                foreach (var episode in feed.Items)
                 {
-                    Description = episode.Summary.Text,
-                    Title = episode.Title.Text,
-                };
-                foreach (var link in episode.Links)
-                {
-                    if (link.Uri.OriginalString.EndsWith(".mp3"))
+                    var pod = new Episode()
                     {
-                        pod.Url = link.Uri.OriginalString;
-                        continue;
-                    }
+                        Description = episode.Summary.Text,
+                        Title = episode.Title.Text,
+                    };
+                    foreach (var link in episode.Links)
+                    {
+                        if (link.Uri.OriginalString.EndsWith(".mp3"))
+                        {
+                            pod.Url = link.Uri.OriginalString;
+                            continue;
+                        }
 
+                    }
+                    episodes.Add(pod);
                 }
-                episodes.Add(pod);
+                foreach (var item in episodes)
+                {
+                    cbox.Items.Add(item);
+                }
             }
-            foreach (var item in episodes)
+            catch (Exception a)
             {
-                cbox.Items.Add(item);
+                Console.WriteLine(a);
             }
-         
+
         }
 
         public void getDescription(string name, RichTextBox lbDescription)
         {
-            var descrip = from x in episodes
-                          where x.Title == name
-                          select x.Description;
+            try
+            {
+                var descrip = from x in episodes
+                              where x.Title == name
+                              select x.Description;
 
-            lbDescription.AppendText(descrip.Single().ToString());
- 
+                lbDescription.AppendText(descrip.Single().ToString());
+            }
+            catch {
+                Console.WriteLine();
+            }
         }
         public string GetPlayablePod(string name)
         {
-            var Url = from x in episodes
-                              where x.Title == name
-                              select x.Url;
+                var Url = from x in episodes
+                          where x.Title == name
+                          select x.Url;
 
-                              
-            return Url.Single().ToString();
+
+                return Url.Single().ToString();
         }
 
         
         // Timer raised method
         public void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
-
-            theTimer.Stop();
-
-            // Displays a message box asking whether to continue running the timer
-            if (MessageBox.Show("Do you want to search for updates?", "Count is " + alarmCounter, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                // Restarts the timer and increments the counter
+                theTimer.Stop();
 
-                alarmCounter += 0;
-                theTimer.Enabled = true;
+                // Displays a message box asking whether to continue running the timer
+                if (MessageBox.Show("Do you want to search for updates?", "Count is " + alarmCounter, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    // Restarts the timer and increments the counter
+
+                    alarmCounter += 0;
+                    theTimer.Enabled = true;
+                }
+                else
+                {
+                    // Stops the timer
+                    exitFlag = true;
+                }
             }
-            else
-            {
-                // Stops the timer
-                exitFlag = true;
-            }
+            catch { Console.WriteLine(); }
         }
 
         public int Timer()
         {
+            
             //Adds the event and the event handler for the method that will 
             //process the timer event to the timer
             theTimer.Tick += new EventHandler(TimerEventProcessor);
@@ -114,7 +130,10 @@ namespace Logic
                 Application.DoEvents();
             }
             return 0;
+                
+            
         }
+
     }
 }
     

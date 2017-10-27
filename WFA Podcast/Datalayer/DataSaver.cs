@@ -33,6 +33,7 @@ namespace Datalayer
 
         public bool SaveFolderCategory(string category)
         {
+
             if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
             {
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories");
@@ -46,11 +47,18 @@ namespace Datalayer
 
         public void saveXML()
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlTextWriter writer = new XmlTextWriter("podcasts.xml", null);
-            writer.Formatting = Formatting.Indented;
-            xmlDoc.Save(writer);
-            writer.Close();
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                XmlTextWriter writer = new XmlTextWriter("podcasts.xml", null);
+                writer.Formatting = Formatting.Indented;
+                xmlDoc.Save(writer);
+                writer.Close();
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
 
         }
 

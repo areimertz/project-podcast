@@ -26,7 +26,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
             fillCategories();
             category.CategoryfillListBox(LBoxCategory, lblloading);
-            //TimerForMassage();
             fillInterval();
 
 
@@ -67,35 +66,41 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try { 
             if (Validator.textFieldNotEmpty(tbNewCategory, " new category name"))
             {
-                if (cbChooseCategory.SelectedItem == null)
-                {
-                    MessageBox.Show("Please choose a category to rename.");
-                    return;
-                }
-                else
-                {
-                    var confirmResult = MessageBox.Show("Are you sure you want to rename this category?",
-                                        "Confirm Delete.",
-                                        MessageBoxButtons.YesNo);
-
+                    if (cbChooseCategory.SelectedItem == null)
                     {
-                        if (confirmResult == DialogResult.Yes)
+                        MessageBox.Show("Please choose a category to rename.");
+                        return;
+                    }
+                    else
+                    {
+                        var confirmResult = MessageBox.Show("Are you sure you want to rename this category?",
+                                            "Confirm Delete.",
+                                            MessageBoxButtons.YesNo);
+
                         {
-                            category.changeCategoryName(cbChooseCategory.Text, tbNewCategory.Text);
-                            MessageBox.Show("Category has been changed to " + tbNewCategory.Text + ".");
-                            LBoxEpisode.Items.Clear();
-                            LBoxPodcast.Items.Clear();
-                            LBoxCategory.Items.Clear();
-                            cbChooseCategory.ResetText();
-                            tbNewCategory.ResetText();
-                            cbChooseCategory.Items.Clear();
-                            tbNewCategory.Clear();
-                            fillCategories();
+                            if (confirmResult == DialogResult.Yes)
+                            {
+                                category.changeCategoryName(cbChooseCategory.Text, tbNewCategory.Text);
+                                MessageBox.Show("Category has been changed to " + tbNewCategory.Text + ".");
+                                LBoxEpisode.Items.Clear();
+                                LBoxPodcast.Items.Clear();
+                                LBoxCategory.Items.Clear();
+                                cbChooseCategory.ResetText();
+                                tbNewCategory.ResetText();
+                                cbChooseCategory.Items.Clear();
+                                tbNewCategory.Clear();
+                                fillCategories();
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
             }
         }
 
@@ -106,16 +111,23 @@ namespace WindowsFormsApp1
 
         private void BtnAddCategory_Click(object sender, EventArgs e)
         {
-            if (Validator.textFieldNotEmpty(TBoxAddNewCategory, " Add Category"))
+            try
             {
+                if (Validator.textFieldNotEmpty(TBoxAddNewCategory, " Add Category"))
+                {
 
-                string text = TBoxAddNewCategory.Text;
-                category.SaveCategory(text);
-                LBoxCategory.Items.Clear();
-                CombBoxSelectAnExistingCategory.Items.Clear();
-                TBoxAddNewCategory.Clear();
-                cbChooseCategory.Items.Clear();
-                fillCategories();
+                    string text = TBoxAddNewCategory.Text;
+                    category.SaveCategory(text);
+                    LBoxCategory.Items.Clear();
+                    CombBoxSelectAnExistingCategory.Items.Clear();
+                    TBoxAddNewCategory.Clear();
+                    cbChooseCategory.Items.Clear();
+                    fillCategories();
+                }
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
             }
 
 
@@ -123,57 +135,76 @@ namespace WindowsFormsApp1
 
         private void LBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rTbEpisode.Clear();
-            richTbDesc.Clear();
-            LBoxEpisode.Items.Clear();
-            LBoxPodcast.Items.Clear();
-            fillpodcasts(LBoxCategory.SelectedItem.ToString());
-
+            try
+            {
+                rTbEpisode.Clear();
+                richTbDesc.Clear();
+                LBoxEpisode.Items.Clear();
+                LBoxPodcast.Items.Clear();
+                fillpodcasts(LBoxCategory.SelectedItem.ToString());
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
 
         }
 
         private void LBoxPodcast_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            richTbDesc.Clear();
-            var categories = LBoxCategory.SelectedItem.ToString();
-            var path = LBoxPodcast.SelectedItem.ToString();
-            var test = LBoxPodcast.GetItemText(podcast.intervall);
-            var testet = int.Parse(test);
-            episode.Timer();
-            episode.getEpisodes(categories, path, LBoxEpisode);
-            podcast.getPodDescription(categories, path, richTbDesc);
+            try
+            {
+                richTbDesc.Clear();
+                var categories = LBoxCategory.SelectedItem.ToString();
+                var path = LBoxPodcast.SelectedItem.ToString();
+                var test = LBoxPodcast.GetItemText(podcast.intervall);
+                var testet = int.Parse(test);
+                episode.Timer();
+                episode.getEpisodes(categories, path, LBoxEpisode);
+                podcast.getPodDescription(categories, path, richTbDesc);
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
         }
 
         private void BtnAddPodcast_Click(object sender, EventArgs e)
         {
-            if (Validator.textFieldNotEmpty(TBoxName, " Name") && Validator.textFieldNotEmpty(TBoxChosenURL, " Chosen Url") && Validator.checkUrl(TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString(), TBoxName.Text))
+            try
             {
-                if (CombBoxSelectAnExistingCategory.SelectedItem == null && CombBoxSelectYourUpdateInterval.SelectedItem==null)
+                if (Validator.textFieldNotEmpty(TBoxName, " Name") && Validator.textFieldNotEmpty(TBoxChosenURL, " Chosen Url") && Validator.checkUrl(TBoxChosenURL.Text, CombBoxSelectAnExistingCategory.SelectedItem.ToString(), TBoxName.Text))
                 {
-                    MessageBox.Show("Please choose a value to the combobox");
-                    return;
-                }
-                else
-                {
-                    var podName = TBoxName.Text;
-                    var url = TBoxChosenURL.Text;
-                    var cat = CombBoxSelectAnExistingCategory.SelectedItem.ToString();
-                    var intervall = CombBoxSelectYourUpdateInterval.SelectedItem.ToString();
-                    var intervallen = int.Parse(intervall);
-                    podcast.podcastinfo(url, cat, podName, intervallen);
-                    TBoxName.Clear();
-                    TBoxChosenURL.Clear();
-                    LBoxCategory.Items.Clear();
-                    CombBoxSelectAnExistingCategory.ResetText();
-                    CombBoxSelectAnExistingCategory.Items.Clear();
-                    CombBoxSelectYourUpdateInterval.ResetText();
-                    CombBoxSelectYourUpdateInterval.Items.Clear();
-                    cbChooseCategory.Items.Clear();
+                    if (CombBoxSelectAnExistingCategory.SelectedItem == null && CombBoxSelectYourUpdateInterval.SelectedItem == null)
+                    {
+                        MessageBox.Show("Please choose a value to the combobox");
+                        return;
+                    }
+                    else
+                    {
+                        var podName = TBoxName.Text;
+                        var url = TBoxChosenURL.Text;
+                        var cat = CombBoxSelectAnExistingCategory.SelectedItem.ToString();
+                        var intervall = CombBoxSelectYourUpdateInterval.SelectedItem.ToString();
+                        var intervallen = int.Parse(intervall);
+                        podcast.podcastinfo(url, cat, podName, intervallen);
+                        TBoxName.Clear();
+                        TBoxChosenURL.Clear();
+                        LBoxCategory.Items.Clear();
+                        CombBoxSelectAnExistingCategory.ResetText();
+                        CombBoxSelectAnExistingCategory.Items.Clear();
+                        CombBoxSelectYourUpdateInterval.ResetText();
+                        CombBoxSelectYourUpdateInterval.Items.Clear();
+                        cbChooseCategory.Items.Clear();
 
-                    fillCategories();
-                    MessageBox.Show("Podcast added");
+                        fillCategories();
+                        MessageBox.Show("Podcast added");
+                    }
                 }
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
             }
         }
 
@@ -223,32 +254,46 @@ namespace WindowsFormsApp1
 
         private void BtnRemoveCategory_Click(object sender, EventArgs e)
         {
+            try { 
             if (Validator.checkCategory(LBoxCategory, " category"))
             {
                 var confirmResult = MessageBox.Show("Are you sure you want to delete this Category?",
                                     "Confirm Delete.",
                                     MessageBoxButtons.YesNo);
-                {
-                    if (confirmResult == DialogResult.Yes) {
+                    {
+                        if (confirmResult == DialogResult.Yes)
+                        {
 
-                        var chosenCategory = LBoxCategory.SelectedItem.ToString();
+                            var chosenCategory = LBoxCategory.SelectedItem.ToString();
 
-                        category.remove(chosenCategory);
+                            category.remove(chosenCategory);
 
-                        LBoxCategory.Items.Clear();
-                        LBoxPodcast.Items.Clear();
-                        LBoxEpisode.Items.Clear();
-                        fillCategories();
+                            LBoxCategory.Items.Clear();
+                            LBoxPodcast.Items.Clear();
+                            LBoxEpisode.Items.Clear();
+                            fillCategories();
+                        }
                     }
                 }
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
             }
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rTbEpisode.Clear();
-            var epi = LBoxEpisode.SelectedItem.ToString();
-            episode.getDescription(epi, rTbEpisode);
+            try
+            {
+                rTbEpisode.Clear();
+                var epi = LBoxEpisode.SelectedItem.ToString();
+                episode.getDescription(epi, rTbEpisode);
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
 
         }
 
@@ -264,22 +309,28 @@ namespace WindowsFormsApp1
 
         private void BtnRemovePodcast_Click(object sender, EventArgs e)
         {
+            try { 
             if (Validator.checkCategory(LBoxPodcast, " Podcast"))
             {
                 var confirmResult = MessageBox.Show("Are you sure you want to delete this podcast?",
                                     "Confirm Delete.",
                                     MessageBoxButtons.YesNo);
-                {
-                    if (confirmResult == DialogResult.Yes)
                     {
-                        category.remove(LBoxCategory.Text, LBoxPodcast.Text);
-                        LBoxEpisode.Items.Clear();
-                        LBoxPodcast.Items.Clear();
-                        LBoxCategory.Items.Clear();
-                        fillCategories();
+                        if (confirmResult == DialogResult.Yes)
+                        {
+                            category.remove(LBoxCategory.Text, LBoxPodcast.Text);
+                            LBoxEpisode.Items.Clear();
+                            LBoxPodcast.Items.Clear();
+                            LBoxCategory.Items.Clear();
+                            fillCategories();
 
+                        }
                     }
                 }
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
             }
         }
 
@@ -300,7 +351,7 @@ namespace WindowsFormsApp1
 
         private void BtnChangeCategory_Click(object sender, EventArgs e)
         {
-
+            try { 
             if (Validator.comboBoxMovePodcast(cbnewCategory, LBoxCategory) && Validator.checkUrl(tbNewUrl.Text, cbnewCategory.SelectedItem.ToString(), tbPodcastChange.Text) && Validator.textFieldNotEmpty(tbPodcastChange, " podcast name"))
             {
                 if (cbnewCategory.SelectedItem == null && cbChooseIV.SelectedItem == null)
@@ -313,89 +364,80 @@ namespace WindowsFormsApp1
                                         "Confirm Delete.",
                                         MessageBoxButtons.YesNo);
 
-                    {
-                        if (confirmResult == DialogResult.Yes)
                         {
-                            category.remove(LBoxCategory.Text, LBoxPodcast.Text);
-                            var podName = tbPodcastChange.Text;
-                            var url = tbNewUrl.Text;
-                            var cat = cbnewCategory.SelectedItem.ToString();
-                            var intervall = cbChooseIV.SelectedItem.ToString();
-                            var intervallen = int.Parse(intervall);
-                            podcast.podcastinfo(url, cat, podName, intervallen);
-                            MessageBox.Show("Podcast has been moved to " + cbnewCategory.SelectedItem.ToString() + ".");
-                            LBoxEpisode.Items.Clear();
-                            LBoxPodcast.Items.Clear();
-                            LBoxCategory.Items.Clear();
-                            cbnewCategory.ResetText();
-                            cbChooseIV.ResetText();
-                            cbnewCategory.Items.Clear();
-                            cbChooseIV.Items.Clear();
-                            tbPodcastChange.Clear();
-                            tbNewUrl.Clear();
-                            richTbDesc.Clear();
-                            fillCategories();
+                            if (confirmResult == DialogResult.Yes)
+                            {
+                                category.remove(LBoxCategory.Text, LBoxPodcast.Text);
+                                var podName = tbPodcastChange.Text;
+                                var url = tbNewUrl.Text;
+                                var cat = cbnewCategory.SelectedItem.ToString();
+                                var intervall = cbChooseIV.SelectedItem.ToString();
+                                var intervallen = int.Parse(intervall);
+                                podcast.podcastinfo(url, cat, podName, intervallen);
+                                MessageBox.Show("Podcast has been moved to " + cbnewCategory.SelectedItem.ToString() + ".");
+                                LBoxEpisode.Items.Clear();
+                                LBoxPodcast.Items.Clear();
+                                LBoxCategory.Items.Clear();
+                                cbnewCategory.ResetText();
+                                cbChooseIV.ResetText();
+                                cbnewCategory.Items.Clear();
+                                cbChooseIV.Items.Clear();
+                                tbPodcastChange.Clear();
+                                tbNewUrl.Clear();
+                                richTbDesc.Clear();
+                                fillCategories();
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
             }
         }
 
 
         private void BtnPlayPodcast_Click(object sender, EventArgs e)
         {
-            var selected = LBoxEpisode.SelectedItem.ToString();
-            var url = episode.GetPlayablePod(selected);
-            
+            try
+            {
+                var selected = LBoxEpisode.SelectedItem.ToString();
+                var url = episode.GetPlayablePod(selected);
+
                 Process.Start(url);
-            var picked = PlayedPod.Items.Add(selected);
-
-
+                var picked = PlayedPod.Items.Add(selected);
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
         }
 
         private void TBoxChosenURL_TextChanged(object sender, EventArgs e)
         {
 
         }
-         internal void MessageUpdate()
-        {
-            MessageBox.Show("To update your episodes, relaunch the program!");
-        }
-        public void TimerForMassage()
-        {
-            var StartTimeSpan = TimeSpan.Zero;
-            var periodTimespan = TimeSpan.FromSeconds(1500);
-            var timer = new System.Threading.Timer((e) =>
-            {
-                MessageUpdate();
-            },null, StartTimeSpan, periodTimespan);
-        }
+       
         
         private void LBoxEpisode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rTbEpisode.Clear();
-            var epi = LBoxEpisode.SelectedItem.ToString();
-            episode.getDescription(epi, rTbEpisode);
+            try
+            {
+                rTbEpisode.Clear();
+                var epi = LBoxEpisode.SelectedItem.ToString();
+                episode.getDescription(epi, rTbEpisode);
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
         }
 
         private void cbnewCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        private void update(string Url, string category, string name, int intervall) {
-            
-            podcast.podcastinfo(Url, category, name, intervall);
-
-            MessageBox.Show("Podcast is now updated");
-
-        }
-        private void updateTime(string url, string category, string name, int intervall) {
-            var start = TimeSpan.Zero;
-            var period = TimeSpan.FromSeconds(intervall * 1);
-            var timer = new System.Threading.Timer((e) =>
-            {
-                update(url, category, name, intervall);
-            }, null, start, period);
-        }
+        
     }
 }

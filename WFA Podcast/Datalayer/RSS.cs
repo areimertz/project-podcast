@@ -19,11 +19,18 @@ namespace Datalayer
 
         public override void writeToXml(string Url, string name, string category, int intervall)
         {
-            using (var client = new WebClient())
+            try
             {
-                string path = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".xml";
-                client.DownloadFile(Url, path);
-                client.Dispose();
+                using (var client = new WebClient())
+                {
+                    string path = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".xml";
+                    client.DownloadFile(Url, path);
+                    client.Dispose();
+                }
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
             }
 
         }
