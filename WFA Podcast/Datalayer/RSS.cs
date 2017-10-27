@@ -17,7 +17,7 @@ namespace Datalayer
 
 
 
-        public override void writeToXml(string Url, string name, string category)
+        public override void writeToXml(string Url, string name, string category, int intervall)
         {
             using (var client = new WebClient())
             {

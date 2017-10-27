@@ -14,9 +14,10 @@ namespace Logic
 {
     public class Podcast
     {
-        
-            public string name { get; set; }
-            public string intervall { get; set; }
+
+
+        public string name { get; set; }
+            public int intervall { get; set; }
             public string category { get; set; }
 
             public string url { get; set; }
@@ -30,12 +31,13 @@ namespace Logic
             {
                 return name;
             }
-        public void podcastinfo(string Url, string category, string name) {
+        public void podcastinfo(string Url, string category, string name, int intervall) {
             RSS rssreader = new RSS();
             this.name = name;
             this.url = url;
             this.category = category;
-            rssreader.writeToXml(Url, name, category);
+            this.intervall = intervall;
+            rssreader.writeToXml(Url, name, category, intervall);
             
         }
 
@@ -53,10 +55,8 @@ namespace Logic
           
 
         }
+      
 
-        public void intervalSet() {
 
-
-        }
     }
 }
