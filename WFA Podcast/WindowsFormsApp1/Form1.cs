@@ -209,7 +209,7 @@ namespace WindowsFormsApp1
         }
 
 
-        public void fillCategories()
+        internal void fillCategories()
         {
             try
             {
@@ -387,6 +387,7 @@ namespace WindowsFormsApp1
                                 richTbDesc.Clear();
                                 fillCategories();
                             }
+                            
                         }
                     }
                 }
