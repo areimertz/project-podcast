@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Xml;
 using Datalayer;
 using System.ServiceModel.Syndication;
-using System.Windows.Forms;
 using System.Xml.Linq;
 
 
@@ -22,7 +21,6 @@ namespace Logic
             try
             {
                 var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
-
                 var xml = XmlReader.Create(paths);
                 var feed = SyndicationFeed.Load(xml);
                 xml.Close();
@@ -50,10 +48,7 @@ namespace Logic
                         }
                         episodes.Add(pod);
                     }
-                    /* foreach (var item in episodes)
-                     {
-                         cbox.Items.Add(item);
-                     }*/
+                 
                 }
             }
             catch (Exception a)
@@ -74,24 +69,19 @@ namespace Logic
                               where x.Title == name
                               select x.Description;
 
-            //lbDescription.AppendText(descrip.Single().ToString());
             return descrip.Single().ToString();
             
             
         }
         public string GetPlayablePod(string name)
         {
-                var Url = from x in episodes
-                          where x.Title == name
-                          select x.Url;
+            var Url = from x in episodes
+                      where x.Title == name
+                      select x.Url;
 
 
-                return Url.Single().ToString();
+            return Url.Single().ToString();
         }
-
-        
-       
-
     }
 }
     

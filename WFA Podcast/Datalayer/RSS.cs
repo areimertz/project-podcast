@@ -13,11 +13,7 @@ namespace Datalayer
 
     public class RSS : XmlAbstract
     {
-
-
-
-
-        public override void writeToXml(string Url, string name, string category, double intervall)
+        public override void writeToXml(string Url, string name, string category)
         {
             try
             {

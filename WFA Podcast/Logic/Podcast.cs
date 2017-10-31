@@ -42,7 +42,7 @@ namespace Logic
                 this.url = url;
                 this.category = category;
                 this.intervall = intervall;
-                rssreader.writeToXml(url, name, category, intervall);
+                rssreader.writeToXml(url, name, category);
                 rssreader.saveIntervall(name, category, intervall);
                 rssreader.saveUrl(name,category,url);
             }
@@ -67,13 +67,6 @@ namespace Logic
 
         }
 
-        public void readIntervall(string Url, string name, string category, string intervall) {
-            using (var reader = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".txt"))
-            {
-                var intervallText = reader.ReadToEnd();
-            }
-        }
-
         public Timer aTimer;
 
         public void Timer( string name, string category)
@@ -95,7 +88,7 @@ namespace Logic
 
                     aTimer.Elapsed += (s, e) =>
                     {
-                        rssreader.writeToXml(urlText, name, category, intervallen );
+                        rssreader.writeToXml(urlText, name, category);
                     };
 
 

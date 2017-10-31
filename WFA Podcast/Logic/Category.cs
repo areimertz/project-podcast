@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Datalayer;
 using System.IO;
-using System.Windows.Forms;
 using System.Threading;
 
 
@@ -18,31 +17,11 @@ namespace Logic
         public List<CategoryProperties> ListOfCategories = new List<CategoryProperties>();
         CategoryProperties catProp = new CategoryProperties();
 
-       /* public async void CategoryfillListBox(ListBox LB, Label lblloading){
-            try
-            {
-                Task<List<string>> result;
-                result = fillListCategory();
-                lblloading.Text = "Loading..";
-                await result;
-                List<string> AllCategories = result.Result;
-                foreach (var item in AllCategories)
-                {
-                    LB.Items.Add(item);
-                }
-                lblloading.Text = "Done!";
-            }
-            catch (Exception a)
-            {
-                Console.WriteLine(a);
-            }
-
-        }*/
+  
         public void SaveCategory(string newCategory)
         {
             try
             {
-
                 dataSaver.SaveFolderCategory(newCategory);
             }
             catch (Exception a)
@@ -59,7 +38,6 @@ namespace Logic
             {
                 allaNamn.Add(name.ToString());
                 Thread.Sleep(5000);
-                
             }
             return allaNamn;
         }

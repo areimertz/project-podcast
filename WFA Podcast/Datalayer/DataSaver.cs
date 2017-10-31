@@ -40,29 +40,7 @@ namespace Datalayer
             }
             System.IO.Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories\" + category);
             return true;
-        }
-
-
-        public void saveXML()
-        {
-            try
-            {
-                XmlDocument xmlDoc = new XmlDocument();
-                XmlTextWriter writer = new XmlTextWriter("podcasts.xml", null);
-                writer.Formatting = Formatting.Indented;
-                xmlDoc.Save(writer);
-                writer.Close();
-            }
-            catch (Exception a)
-            {
-                Console.WriteLine(a);
-            }
-
-        }
-
-
-
-   
+        }   
     }
     
 }

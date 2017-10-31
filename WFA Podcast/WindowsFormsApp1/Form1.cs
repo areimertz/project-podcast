@@ -223,7 +223,7 @@ namespace WindowsFormsApp1
                         var url = TBoxChosenURL.Text;
                         var cat = CombBoxSelectAnExistingCategory.SelectedItem.ToString();
                         var intervall = CombBoxSelectYourUpdateInterval.SelectedItem.ToString();
-                        var intervallen = int.Parse(intervall);
+                        var intervallen = double.Parse(intervall);
                         podcast.podcastinfo(url, cat, podName, intervallen);
                         TBoxName.Clear();
                         TBoxChosenURL.Clear();
@@ -327,6 +327,7 @@ namespace WindowsFormsApp1
                             CombBoxSelectAnExistingCategory.Items.Clear();
                             cbnewCategory.ResetText();
                             cbnewCategory.Items.Clear();
+                            rTbEpisode.Clear();
                             fillCategories();
                         }
                     }

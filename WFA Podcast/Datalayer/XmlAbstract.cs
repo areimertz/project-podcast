@@ -11,7 +11,7 @@ namespace Datalayer
     {
       
 
-        public virtual void writeToXml(string Url, string category, string name, double intervall)
+        public virtual void writeToXml(string Url, string category, string name)
         {
             return;
         }
