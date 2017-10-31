@@ -192,6 +192,7 @@ namespace WindowsFormsApp1
                var podDesc = podcast.getPodDescription(categories, path);
                 richTbDesc.AppendText(podDesc);
                 podcast.Timer(path, categories);
+               
             }
             catch (Exception a)
             {
@@ -361,6 +362,7 @@ namespace WindowsFormsApp1
                     {
                         if (confirmResult == DialogResult.Yes)
                         {
+                            podcast.stopTimer();
                             category.remove(LBoxCategory.Text, LBoxPodcast.SelectedItem.ToString());
                             LBoxEpisode.Items.Clear();
                             LBoxPodcast.Items.Clear();

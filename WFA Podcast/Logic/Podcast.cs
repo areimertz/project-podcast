@@ -106,7 +106,11 @@ namespace Logic
                 }
 
             }
+           
         }
-
+        public void stopTimer()
+        {
+            aTimer.Stop();
+        }
     }
 }
