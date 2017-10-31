@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Datalayer;
 using System.Xml;
 using System.ServiceModel.Syndication;
-using System.Windows.Forms;
+using System.Timers;
 using System.IO;
 using System.Xml.Linq;
 
@@ -17,29 +17,34 @@ namespace Logic
 
 
         public string name { get; set; }
-            public int intervall { get; set; }
-            public string category { get; set; }
+        public double intervall { get; set; }
+        public string category { get; set; }
 
-            public string url { get; set; }
+        public string url { get; set; }
+       
 
-            public override string ToString()
-            {
-                return name;
-            }
+        public override string ToString()
+        {
+            return name;
+        }
 
-            public string getName()
-            {
-                return name;
-            }
-        public void podcastinfo(string Url, string category, string name, int intervall) {
+        public string getName()
+        {
+            return name;
+        }
+        RSS rssreader = new RSS();
+        public void podcastinfo(string url, string category, string name, double intervall)
+        {
             try
             {
-                RSS rssreader = new RSS();
+               
                 this.name = name;
                 this.url = url;
                 this.category = category;
                 this.intervall = intervall;
-                rssreader.writeToXml(Url, name, category, intervall);
+                rssreader.writeToXml(url, name, category, intervall);
+                rssreader.saveIntervall(name, category, intervall);
+                rssreader.saveUrl(name,category,url);
             }
             catch (Exception a)
             {
@@ -47,10 +52,10 @@ namespace Logic
             }
         }
 
-        public void getPodDescription(string category, string name, RichTextBox lbox)
+        public string getPodDescription(string category, string name)
         {
-            try
-            {
+            
+            
                 var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
 
                 var xml = XmlReader.Create(paths);
@@ -58,14 +63,50 @@ namespace Logic
                 xml.Close();
 
                 var description = feed.Description.Text;
-                lbox.AppendText(description);
-
-            }
-            catch (Exception a)
-            {
-                Console.WriteLine(a);
-            }
+                return description;
 
         }
+
+        public void readIntervall(string Url, string name, string category, string intervall) {
+            using (var reader = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".txt"))
+            {
+                var intervallText = reader.ReadToEnd();
+            }
+        }
+
+        public Timer aTimer;
+
+        public void Timer( string name, string category)
+        {
+            using (var reader = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name +"intervall"+ ".txt"))
+
+            {
+                var intervallText = reader.ReadToEnd();
+                using (var readurl = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".txt"))
+                {
+
+                    var urlText = readurl.ReadToEnd();
+                    double intervallen = double.Parse(intervallText);
+
+
+                    aTimer = new Timer();
+                    aTimer.Interval = intervallen;
+
+
+                    aTimer.Elapsed += (s, e) =>
+                    {
+                        rssreader.writeToXml(urlText, name, category, intervallen );
+                    };
+
+
+                    aTimer.AutoReset = true;
+
+
+                    aTimer.Enabled = true;
+                }
+
+            }
+        }
+
     }
 }

@@ -16,11 +16,8 @@ namespace Logic
    public class Episodes
     {
             List<Episode> episodes = new List<Episode>();
-        static System.Windows.Forms.Timer theTimer = new System.Windows.Forms.Timer();
-        static int alarmCounter = 1;
-        static bool exitFlag = false;
 
-        public void getEpisodes(string category, string name, ListBox cbox)
+        public void getEpisodes(string category, string name)
         {
             try
             {
@@ -30,29 +27,33 @@ namespace Logic
                 var feed = SyndicationFeed.Load(xml);
                 xml.Close();
 
-
-
-                foreach (var episode in feed.Items)
+                if (episodes != null)
                 {
-                    var pod = new Episode()
+                    episodes.Clear();
+
+
+                    foreach (var episode in feed.Items)
                     {
-                        Description = episode.Summary.Text,
-                        Title = episode.Title.Text,
-                    };
-                    foreach (var link in episode.Links)
-                    {
-                        if (link.Uri.OriginalString.EndsWith(".mp3"))
+                        var pod = new Episode()
                         {
-                            pod.Url = link.Uri.OriginalString;
-                            continue;
-                        }
+                            Description = episode.Summary.Text,
+                            Title = episode.Title.Text,
+                        };
+                        foreach (var link in episode.Links)
+                        {
+                            if (link.Uri.OriginalString.EndsWith(".mp3"))
+                            {
+                                pod.Url = link.Uri.OriginalString;
+                                continue;
+                            }
 
+                        }
+                        episodes.Add(pod);
                     }
-                    episodes.Add(pod);
-                }
-                foreach (var item in episodes)
-                {
-                    cbox.Items.Add(item);
+                    /* foreach (var item in episodes)
+                     {
+                         cbox.Items.Add(item);
+                     }*/
                 }
             }
             catch (Exception a)
@@ -62,19 +63,21 @@ namespace Logic
 
         }
 
-        public void getDescription(string name, RichTextBox lbDescription)
+        public List<Episode> getListEpisodes() {
+            return episodes;
+        }
+
+        public string getDescription(string name)
         {
-            try
-            {
+            
                 var descrip = from x in episodes
                               where x.Title == name
                               select x.Description;
 
-                lbDescription.AppendText(descrip.Single().ToString());
-            }
-            catch {
-                Console.WriteLine();
-            }
+            //lbDescription.AppendText(descrip.Single().ToString());
+            return descrip.Single().ToString();
+            
+            
         }
         public string GetPlayablePod(string name)
         {
@@ -87,52 +90,7 @@ namespace Logic
         }
 
         
-        // Timer raised method
-        public void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
-        {
-            try
-            {
-                theTimer.Stop();
-
-                // Displays a message box asking whether to continue running the timer
-                if (MessageBox.Show("Do you want to search for updates?", "Count is " + alarmCounter, MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    // Restarts the timer and increments the counter
-
-                    alarmCounter += 0;
-                    theTimer.Enabled = true;
-                }
-                else
-                {
-                    // Stops the timer
-                    exitFlag = true;
-                }
-            }
-            catch { Console.WriteLine(); }
-        }
-
-        public int Timer()
-        {
-            
-            //Adds the event and the event handler for the method that will 
-            //process the timer event to the timer
-            theTimer.Tick += new EventHandler(TimerEventProcessor);
-
-            // Sets the timer interval to 5 seconds
-            theTimer.Interval = 2000;
-            theTimer.Start();
-           
-
-            // Runs the timer, and raises the event
-            while (exitFlag == false)
-            {
-                // Processes all the events in the queue
-                Application.DoEvents();
-            }
-            return 0;
-                
-            
-        }
+       
 
     }
 }

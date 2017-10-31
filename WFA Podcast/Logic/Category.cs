@@ -18,7 +18,7 @@ namespace Logic
         public List<CategoryProperties> ListOfCategories = new List<CategoryProperties>();
         CategoryProperties catProp = new CategoryProperties();
 
-        public async void CategoryfillListBox(ListBox LB, Label lblloading){
+       /* public async void CategoryfillListBox(ListBox LB, Label lblloading){
             try
             {
                 Task<List<string>> result;
@@ -37,7 +37,7 @@ namespace Logic
                 Console.WriteLine(a);
             }
 
-        }
+        }*/
         public void SaveCategory(string newCategory)
         {
             try

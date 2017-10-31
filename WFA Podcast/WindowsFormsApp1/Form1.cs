@@ -25,10 +25,32 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             fillCategories();
-            category.CategoryfillListBox(LBoxCategory, lblloading);
+            CategoryfillListBox(LBoxCategory,lblloading);
             fillInterval();
 
 
+
+        }
+
+        public async void CategoryfillListBox(ListBox LB, Label lblloading)
+        {
+            try
+            {
+                Task<List<string>> result;
+                result = category.fillListCategory();
+                lblloading.Text = "Loading..";
+                await result;
+                List<string> AllCategories = result.Result;
+                foreach (var item in AllCategories)
+                {
+                    LB.Items.Add(item);
+                }
+                lblloading.Text = "Done!";
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
 
         }
         public void fillInterval()
@@ -155,13 +177,21 @@ namespace WindowsFormsApp1
             try
             {
                 richTbDesc.Clear();
+                LBoxEpisode.Items.Clear();
                 var categories = LBoxCategory.SelectedItem.ToString();
                 var path = LBoxPodcast.SelectedItem.ToString();
-                var test = LBoxPodcast.GetItemText(podcast.intervall);
-                var testet = int.Parse(test);
-                episode.Timer();
-                episode.getEpisodes(categories, path, LBoxEpisode);
-                podcast.getPodDescription(categories, path, richTbDesc);
+                
+               
+                
+                episode.getEpisodes(categories, path);
+                var list = episode.getListEpisodes();
+                foreach (var item in list)
+                {
+                    LBoxEpisode.Items.Add(item.Title.ToString());
+                }
+               var podDesc = podcast.getPodDescription(categories, path);
+                richTbDesc.AppendText(podDesc);
+                podcast.Timer(path, categories);
             }
             catch (Exception a)
             {
@@ -288,7 +318,10 @@ namespace WindowsFormsApp1
             {
                 rTbEpisode.Clear();
                 var epi = LBoxEpisode.SelectedItem.ToString();
-                episode.getDescription(epi, rTbEpisode);
+                var selected = episode.getDescription(epi);
+                rTbEpisode.AppendText(epi);
+
+                
             }
             catch (Exception a)
             {
@@ -426,8 +459,25 @@ namespace WindowsFormsApp1
             try
             {
                 rTbEpisode.Clear();
+
                 var epi = LBoxEpisode.SelectedItem.ToString();
-                episode.getDescription(epi, rTbEpisode);
+                var selected = episode.getDescription(epi);
+                rTbEpisode.AppendText(epi);
+                var list = episode.getListEpisodes();
+                foreach (var item in list)
+                {
+                    if (item.Title == epi)
+                    {
+                        var desc = item.Description;
+                        if (desc != null)
+                        {
+                            rTbEpisode.Text = desc;
+                        }
+                        else {
+                            rTbEpisode.Text = "Podcast ";
+                        }
+                    }
+                }
             }
             catch (Exception a)
             {
