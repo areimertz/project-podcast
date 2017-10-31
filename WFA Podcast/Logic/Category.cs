@@ -87,10 +87,13 @@ namespace Logic
                 string path2 = Directory.GetCurrentDirectory() + @"\categories\" + category + @"\" + name + "intervall" + ".txt";
                 string path3 = Directory.GetCurrentDirectory() + @"\categories\" + category + @"\" + name + ".xml";
 
+
                 File.Delete(path);
                 File.Delete(path1);
                 File.Delete(path2);
                 File.Delete(path3);
+
+
             }
             catch (Exception a)
             {
