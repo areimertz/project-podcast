@@ -113,6 +113,10 @@ namespace WindowsFormsApp1
                                 cbChooseCategory.ResetText();
                                 tbNewCategory.ResetText();
                                 cbChooseCategory.Items.Clear();
+                                CombBoxSelectAnExistingCategory.ResetText();
+                                CombBoxSelectAnExistingCategory.Items.Clear();
+                                cbnewCategory.ResetText();
+                                cbnewCategory.Items.Clear();
                                 tbNewCategory.Clear();
                                 fillCategories();
                             }
@@ -144,6 +148,8 @@ namespace WindowsFormsApp1
                     CombBoxSelectAnExistingCategory.Items.Clear();
                     TBoxAddNewCategory.Clear();
                     cbChooseCategory.Items.Clear();
+                    cbnewCategory.ResetText();
+                    cbnewCategory.Items.Clear();
                     fillCategories();
                 }
             }
@@ -378,6 +384,12 @@ namespace WindowsFormsApp1
                             LBoxEpisode.Items.Clear();
                             LBoxPodcast.Items.Clear();
                             LBoxCategory.Items.Clear();
+                            CombBoxSelectAnExistingCategory.ResetText();
+                            CombBoxSelectAnExistingCategory.Items.Clear();
+                            cbnewCategory.ResetText();
+                            cbnewCategory.Items.Clear();
+                            cbChooseCategory.ResetText();
+                            cbChooseCategory.Items.Clear();
                             richTbDesc.Clear();
                             fillCategories();
 
@@ -444,6 +456,12 @@ namespace WindowsFormsApp1
                                 cbChooseIV.Items.Clear();
                                 tbPodcastChange.Clear();
                                 tbNewUrl.Clear();
+                                CombBoxSelectYourUpdateInterval.ResetText();
+                                CombBoxSelectYourUpdateInterval.Items.Clear();
+                                CombBoxSelectAnExistingCategory.ResetText();
+                                CombBoxSelectAnExistingCategory.Items.Clear();
+                                cbChooseCategory.ResetText();
+                                cbChooseCategory.Items.Clear();
                                 richTbDesc.Clear();
                                 fillCategories();
                                 fillInterval();
