@@ -361,7 +361,7 @@ namespace WindowsFormsApp1
                     {
                         if (confirmResult == DialogResult.Yes)
                         {
-                            category.remove(LBoxCategory.Text, LBoxPodcast.Text);
+                            category.remove(LBoxCategory.Text, LBoxPodcast.SelectedItem.ToString());
                             LBoxEpisode.Items.Clear();
                             LBoxPodcast.Items.Clear();
                             LBoxCategory.Items.Clear();
@@ -410,14 +410,15 @@ namespace WindowsFormsApp1
                         {
                             if (confirmResult == DialogResult.Yes)
                             {
-                                category.remove(LBoxCategory.Text, LBoxPodcast.Text);
+                               
                                 var podName = tbPodcastChange.Text;
                                 var url = tbNewUrl.Text;
                                 var cat = cbnewCategory.SelectedItem.ToString();
                                 var intervall = cbChooseIV.SelectedItem.ToString();
-                                var intervallen = int.Parse(intervall);
+                                var intervallen = double.Parse(intervall);
                                 podcast.podcastinfo(url, cat, podName, intervallen);
                                 MessageBox.Show("Podcast has been moved to " + cbnewCategory.SelectedItem.ToString() + ".");
+                                category.remove(LBoxCategory.Text, LBoxPodcast.Text);
                                 LBoxEpisode.Items.Clear();
                                 LBoxPodcast.Items.Clear();
                                 LBoxCategory.Items.Clear();
