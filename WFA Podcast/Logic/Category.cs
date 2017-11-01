@@ -24,22 +24,29 @@ namespace Logic
             {
                 dataSaver.SaveFolderCategory(newCategory);
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
 
         }
 
        public async Task<List<String>> fillListCategory()
         {
-            List<String> allaNamn = new List<String>();
-            foreach (var name in ListOfCategories)
+            try
             {
-                allaNamn.Add(name.ToString());
-                Thread.Sleep(5000);
+                List<String> allaNamn = new List<String>();
+                foreach (var name in ListOfCategories)
+                {
+                    allaNamn.Add(name.ToString());
+                    Thread.Sleep(5000);
+                }
+                return allaNamn;
             }
-            return allaNamn;
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
        public void remove(string category)
@@ -50,9 +57,9 @@ namespace Logic
 
                 Directory.Delete(path, true);
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -73,9 +80,9 @@ namespace Logic
 
 
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -88,9 +95,9 @@ namespace Logic
 
                 File.Move(path1, path2);
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -103,9 +110,9 @@ namespace Logic
 
                 Directory.Move(path1, path2);
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
     }

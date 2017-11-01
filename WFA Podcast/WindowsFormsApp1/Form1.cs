@@ -27,9 +27,6 @@ namespace WindowsFormsApp1
             fillCategories();
             CategoryfillListBox(LBoxCategory,lblloading);
             fillInterval();
-
-
-
         }
 
         public async void CategoryfillListBox(ListBox LB, Label lblloading)
@@ -47,9 +44,9 @@ namespace WindowsFormsApp1
                 }
                 lblloading.Text = "Done!";
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
 
         }
@@ -66,9 +63,9 @@ namespace WindowsFormsApp1
                 cbChooseIV.Items.Add("10000");
                 cbChooseIV.Items.Add("300000");
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
+                throw;
             }
         }
         private void label1_Click(object sender, EventArgs e)
@@ -124,9 +121,9 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -153,9 +150,9 @@ namespace WindowsFormsApp1
                     fillCategories();
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
 
 
@@ -171,9 +168,9 @@ namespace WindowsFormsApp1
                 LBoxPodcast.Items.Clear();
                 fillpodcasts(LBoxCategory.SelectedItem.ToString());
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
 
         }
@@ -200,9 +197,9 @@ namespace WindowsFormsApp1
                 podcast.Timer(path, categories);
                
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -243,9 +240,9 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -266,9 +263,9 @@ namespace WindowsFormsApp1
                     CombBoxSelectAnExistingCategory.Items.Add(fixadCat);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
+                throw;
             }
         }
         public void fillpodcasts(String category)
@@ -297,9 +294,9 @@ namespace WindowsFormsApp1
                     }
                 
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
+                throw;
             }
         }
 
@@ -333,9 +330,9 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception )
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -350,9 +347,9 @@ namespace WindowsFormsApp1
 
                 
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
 
         }
@@ -398,9 +395,9 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -474,9 +471,9 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -491,9 +488,9 @@ namespace WindowsFormsApp1
                 Process.Start(url);
                 var picked = PlayedPod.Items.Add(selected);
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
@@ -528,9 +525,9 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 

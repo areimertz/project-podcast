@@ -15,31 +15,44 @@ namespace Datalayer
         CategoryProperties catProp = new CategoryProperties();
         public List<CategoryProperties> getCategories()
         {
-            String namn = catProp.getName();
-            if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
+            try
             {
-                Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories");
-            }
+                String namn = catProp.getName();
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
+                {
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories");
+                }
 
-            List<CategoryProperties> categories = new List<CategoryProperties>();
-            var folder = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\categories");
-            foreach (var category in folder)
-            {
-                var name = new DirectoryInfo(category);
-                categories.Add(new CategoryProperties { name = name.Name });
+                List<CategoryProperties> categories = new List<CategoryProperties>();
+                var folder = Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\categories");
+                foreach (var category in folder)
+                {
+                    var name = new DirectoryInfo(category);
+                    categories.Add(new CategoryProperties { name = name.Name });
+                }
+                return categories;
             }
-            return categories;
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public bool SaveFolderCategory(string category)
         {
-
-            if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
+            try
             {
-                Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories");
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\categories"))
+                {
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories");
+                }
+                System.IO.Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories\" + category);
+                return true;
             }
-            System.IO.Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\categories\" + category);
-            return true;
+            catch (Exception)
+            {
+                throw;
+            }
         }   
     }
     

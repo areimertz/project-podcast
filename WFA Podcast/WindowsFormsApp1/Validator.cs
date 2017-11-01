@@ -14,50 +14,70 @@ namespace WindowsFormsApp1
 
         public static bool textFieldNotEmpty(TextBox empty, string label)
         {
-            
-            if (empty.Text == "")
+            try
             {
-                MessageBox.Show("Please insert value to" + label);
-                empty.Focus();
-                return false;
+                if (empty.Text == "")
+                {
+                    MessageBox.Show("Please insert value to" + label);
+                    empty.Focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                return true;
+                throw;
             }
         }
 
         public static bool checkCategory(ListBox empty, string label)
         {
-            if (empty.Text == "")
+            try
             {
-                MessageBox.Show("Please pick a value in" + label);
-                empty.Focus();
-                return false;
+                if (empty.Text == "")
+                {
+                    MessageBox.Show("Please pick a value in" + label);
+                    empty.Focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                return true;
+                throw;
             }
         }
 
         public static bool comboBoxMovePodcast(ComboBox combobox, ListBox lista)
         {
-            if (combobox.Text == "")
+            try
             {
-                MessageBox.Show("Please choose insert value to the combobox");
-                combobox.Focus();
-                return false;
+                if (combobox.Text == "")
+                {
+                    MessageBox.Show("Please choose insert value to the combobox");
+                    combobox.Focus();
+                    return false;
+                }
+                else if (combobox.SelectedItem == lista.SelectedItem)
+                {
+                    MessageBox.Show("The podcast is already located in the selected category.");
+                    combobox.Focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else if (combobox.SelectedItem == lista.SelectedItem)
+            catch (Exception)
             {
-                MessageBox.Show("The podcast is already located in the selected category.");
-                combobox.Focus();
-                return false;
-            }
-            else
-            {
-                return true;
+                throw;
             }
         }
 
@@ -78,8 +98,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Please enter a correct url.");
                 return false;
             }
-
-
         }
 
     }

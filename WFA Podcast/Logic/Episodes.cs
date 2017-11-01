@@ -51,36 +51,54 @@ namespace Logic
                  
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
 
         }
 
         public List<Episode> getListEpisodes() {
-            return episodes;
+            try
+            {
+                return episodes;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public string getDescription(string name)
         {
-            
+            try
+            {
                 var descrip = from x in episodes
                               where x.Title == name
                               select x.Description;
 
-            return descrip.Single().ToString();
-            
-            
+                return descrip.Single().ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public string GetPlayablePod(string name)
         {
-            var Url = from x in episodes
-                      where x.Title == name
-                      select x.Url;
+            try
+            {
+                var Url = from x in episodes
+                          where x.Title == name
+                          select x.Url;
 
 
-            return Url.Single().ToString();
+                return Url.Single().ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

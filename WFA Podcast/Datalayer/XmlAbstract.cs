@@ -10,7 +10,6 @@ namespace Datalayer
     public abstract class XmlAbstract
     {
       
-
         public virtual void writeToXml(string Url, string category, string name)
         {
             return;

@@ -24,9 +24,9 @@ namespace Datalayer
                     client.Dispose();
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
         public void saveIntervall(string name, string category, double intervall) {
@@ -38,9 +38,9 @@ namespace Datalayer
                     writer.Write(intervall);
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
         public void saveUrl(string name, string category, string Url)
@@ -53,9 +53,9 @@ namespace Datalayer
                     writer.Write(Url);
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
     }

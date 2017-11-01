@@ -25,12 +25,26 @@ namespace Logic
 
         public override string ToString()
         {
-            return name;
+            try
+            {
+                return name;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public string getName()
         {
-            return name;
+            try
+            {
+                return name;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         RSS rssreader = new RSS();
         public void podcastinfo(string url, string category, string name, double intervall)
@@ -46,16 +60,17 @@ namespace Logic
                 rssreader.saveIntervall(name, category, intervall);
                 rssreader.saveUrl(name,category,url);
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                Console.WriteLine(a);
+                throw;
             }
         }
 
         public string getPodDescription(string category, string name)
         {
-            
-            
+            try
+            {
+
                 var paths = Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name;
 
                 var xml = XmlReader.Create(paths);
@@ -64,46 +79,63 @@ namespace Logic
 
                 var description = feed.Description.Text;
                 return description;
-
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
 
         public Timer aTimer;
 
         public void Timer( string name, string category)
         {
-            using (var reader = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name +"intervall"+ ".txt"))
+            try {
+                using (var reader = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + "intervall" + ".txt"))
 
-            {
-                var intervallText = reader.ReadToEnd();
-                using (var readurl = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".txt"))
                 {
-
-                    var urlText = readurl.ReadToEnd();
-                    double intervallen = double.Parse(intervallText);
-
-
-                    aTimer = new Timer();
-                    aTimer.Interval = intervallen;
-
-
-                    aTimer.Elapsed += (s, e) =>
+                    var intervallText = reader.ReadToEnd();
+                    using (var readurl = new StreamReader(Directory.GetCurrentDirectory() + @"\Categories\" + category + @"\" + name + ".txt"))
                     {
-                        rssreader.writeToXml(urlText, name, category);
-                    };
+
+                        var urlText = readurl.ReadToEnd();
+                        double intervallen = double.Parse(intervallText);
 
 
-                    aTimer.AutoReset = true;
+                        aTimer = new Timer();
+                        aTimer.Interval = intervallen;
 
 
-                    aTimer.Enabled = true;
+                        aTimer.Elapsed += (s, e) =>
+                        {
+                            rssreader.writeToXml(urlText, name, category);
+                        };
+
+
+                        aTimer.AutoReset = true;
+                        
+
+                        aTimer.Enabled = true;
+                    }
                 }
 
             }
-           
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
         public void stopTimer()
         {
-            aTimer.Stop();
+            try
+            {
+                aTimer.Stop();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

@@ -15,8 +15,15 @@ namespace Datalayer
 
         public override string ToString()
         {
-            return Title;
-            
+            try
+            {
+                return Title;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
         
 

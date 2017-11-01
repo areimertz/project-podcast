@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Datalayer
 {
-    /// <summary>
-    /// Hanterar ett objekt av en kategori.
-    /// </summary>
+  
    public class CategoryProperties
     {
         public string name { get; set; }
@@ -16,12 +14,26 @@ namespace Datalayer
 
         public override string ToString()
         {
-            return name;
+            try
+            {
+                return name;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public string getName()
         {
-            return name;
+            try
+            {
+                return name;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
 
